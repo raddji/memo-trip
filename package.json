@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace memo-trip-client build",
+    "dev": "yarn workspace memo-trip-server dev",
+    "dev:debug": "yarn workspace memo-trip-server dev:debug",
+    "heroku-postbuild": "yarn workspace memo-trip-client build",
+    "start": "yarn workspace memo-trip-server start",
+    "dev:cypress": "yarn workspace memo-trip-server dev:e2e",
+    "e2e:open": "yarn workspace memo-trip-e2e e2e:open",
+    "e2e:run": "yarn workspace memo-trip-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^14.19"
+  }
+}

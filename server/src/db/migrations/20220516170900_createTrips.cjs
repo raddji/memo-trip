@@ -10,9 +10,7 @@ exports.up = async (knex) => {
     table.bigIncrements("id");
     table.string("name").notNullable();
     table.string("location").notNullable();
-    table.string("when")
-    table.timestamp("trip_begin_date").notNullable();
-    table.timestamp("trip_end_date").notNullable();
+    table.date("date").notNullable()
     table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now());
     table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now());
   });

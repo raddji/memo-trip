@@ -8,16 +8,29 @@ class Trip extends Model {
   static get jsonSchema() {
     return {
       type: "object", 
-      required: ["name", "location", "trip_begin_date"],
+      required: ["name", "location", "date"],
       properties: {
         name: { type: "string" },
         location: { type: "string" },
-        when: { type: "string" },
-        trip_begin_date: { type: "string" },
-        trip_end_date: { type: "string" }
+        date: { type: "string" },
       }
     };
   };
+  
+  static get relationMappings() {
+    const { Highlight } = require("./index.js");
+
+    return {
+      highlights: {
+        relation: Model.HasManyRelation,
+        modelClass: Highlight,
+        join: {
+          from: "trips.id",
+          to: "highlights.tripId"
+        }
+      }
+    }
+  }
 };
 
 module.exports = Trip;

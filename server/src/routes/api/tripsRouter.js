@@ -1,5 +1,7 @@
 import express from "express"
 import { Trip } from "../../models/index.js"
+import { ValidationError } from "objection";
+import cleanUserInput from "../../services/cleanUserInput.js";
 
 const tripsRouter = new express.Router();
 
@@ -21,5 +23,18 @@ tripsRouter.get("/:id", async (req, res) => {
     return res.status(500).json({ errors: errors })
   }
 });
+
+tripsRouter.post("/", async (req, res) => {
+  try {
+    const tripBody = cleanUserInput(req.body)
+    const newTrip = await Trip.query().insertAndFetch(tripBody)
+    return res.status(201).json({ newTrip })
+    } catch (error) {
+      if (error instanceof ValidationError) {
+        return res.status(422).json({ errors: error.data })
+      }
+      return res.status(500).json({ errors: error })
+  }
+})
 
 export default tripsRouter;

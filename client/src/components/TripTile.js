@@ -2,12 +2,15 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const TripTile = (props) => {
+  const { name, location, date, id } = props.trip
   return (
     <div>
         <ul>
-          <li>{props.trip.name}</li>
-          <li>{props.trip.location}</li>
-          <li>{props.trip.when}</li>
+          <Link to={`/trips/${id}`}>
+          <li>{name}</li>
+          </Link>
+          <li>{location}</li>
+          <li>{date}</li>
         </ul>  
       </div>
   )

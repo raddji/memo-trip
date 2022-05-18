@@ -32,10 +32,7 @@ const TripShowPage = (props) => {
     <div>
       <h1>{trip.name}</h1>
       <p>{trip.location}</p>
-      <p>{trip.when}</p>
-      <p>From:{trip.trip_begin_date}
-      </p>
-      <p>To:{trip.trip_end_date}</p>
+      <p>{trip.date}</p>
     </div>
   )
 

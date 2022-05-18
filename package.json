@@ -18,5 +18,8 @@
   },
   "engines": {
     "node": "^14.19"
+  },
+  "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.33"
   }
 }

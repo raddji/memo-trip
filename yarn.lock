@@ -1083,6 +1083,20 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@googlemaps/js-api-loader@^1.13.2":
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.14.2.tgz#c07c7259d9b86e6ccf72a8426784dbee9dfa8e6b"
+  integrity sha512-Kx9mc4cRKsh122Rdd0v0987qjkwfqic0Go6j9W+KbRaM1GqQUG5UDiOLtZSQRfu0kB2Te+MV0OBa0gHeAg6GNA==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+
+"@googlemaps/react-wrapper@^1.1.33":
+  version "1.1.33"
+  resolved "https://registry.yarnpkg.com/@googlemaps/react-wrapper/-/react-wrapper-1.1.33.tgz#85ab82c1fba81ac5e9f18a4e70564ddcb2282cdc"
+  integrity sha512-/8+8rxQAGy8aURmTJlV0PuJVMG6X+knOICfbMrNu/ZE9ogGhdJqiE0l/6z5g3m4J6uEaImx9zFeSap97C56NdA==
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.13.2"
+
 "@hot-loader/react-dom@~16.13":
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-16.13.0.tgz#de245b42358110baf80aaf47a0592153d4047997"

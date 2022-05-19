@@ -13,7 +13,7 @@ class Highlight extends Model {
         dining: { type: "string" },
         activity: { type: "string" },
         note: { type: "string" },
-        tripId: { type: "integer" }
+        tripId: { type: ["string", "integer"] }
       }
     }
   }

@@ -34,12 +34,12 @@ const App = (props) => {
         <Route exact path="/">
           <h2>Welcome to Memo Trip</h2>
         </Route>
+        <Route exact path="/trips/new" component={NewTripForm} />
+        <Route exact path="/trips" component={TripIndex} />
+        <Route exact path="/trips/:id" component={TripShowPage} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
-      <Route exact path="/" component={TripIndex} />
-      <Route exact path="/trips/new" component={NewTripForm} />
-      <Route exact path="/trips/:id" component={TripShowPage} />
     </Router>
   );
 };

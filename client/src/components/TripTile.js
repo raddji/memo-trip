@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const TripTile = (props) => {
-  const { name, location, date, id } = props.trip
+  const { name, location, trip_start, trip_end, id } = props.trip
   return (
     <div>
         <ul>
@@ -10,7 +10,8 @@ const TripTile = (props) => {
           <li>{name}</li>
           </Link>
           <li>{location}</li>
-          <li>{date}</li>
+          <li>{trip_start}</li>
+          <li>{trip_end}</li>
         </ul>  
       </div>
   )

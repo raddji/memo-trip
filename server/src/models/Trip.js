@@ -8,11 +8,12 @@ class Trip extends Model {
   static get jsonSchema() {
     return {
       type: "object", 
-      required: ["name", "location", "date"],
+      required: ["name", "location", "trip_start", "trip_end"],
       properties: {
         name: { type: "string" },
         location: { type: "string" },
-        date: { type: "string" },
+        trip_start: { type: "string" },
+        trip_end: { type: "string" }
       }
     };
   };

@@ -19,6 +19,12 @@ class HighlightSeeder {
         dining: "That Michelin star place",
         activity: "Blue Lagoon",
         note: "Rent a car to go road tripping.",
+        tripId: 3
+      },
+      {
+        dining: "Hipster Food Truck on Akira Street",
+        activity: "Yayoi Kusama Exhibit",
+        note: "Someone told me about an alley filled with crazy cool vending machines I should check out.",
         tripId: 1
       }
     ];

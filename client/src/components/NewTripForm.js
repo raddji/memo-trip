@@ -7,14 +7,15 @@ const NewTripForm = ({ trips, setTrips }) => {
   const [newTrip, setNewTrip] = useState({
     name: "",
     location: "",
-    when: ""
+    trip_start: "",
+    trip_end: ""
   });
 
   const [errors, setErrors] = useState([]);
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   if (shouldRedirect) {
-    return <Redirect to="/" />
+    return <Redirect to="/trips" />
   }
 
   const postNewTrip = async (newTripData) => {
@@ -59,7 +60,8 @@ const NewTripForm = ({ trips, setTrips }) => {
     setNewTrip({
     name: "",
     location: "",
-    when: ""
+    trip_start: "",
+    trip_end: ""
     })
   }
   
@@ -87,13 +89,22 @@ const NewTripForm = ({ trips, setTrips }) => {
 
           />
         </label>
-        <label htmlFor="when">
+        <label htmlFor="trip_start">
           <input 
-          type="text"
-          name="when"
-          placeholder="When"
+          type="date"
+          name="trip_start"
+          placeholder="From:"
           onChange={handleInputChange}
-          value={newTrip.when}
+          value={newTrip.trip_start}
+          />
+        </label>
+        <label htmlFor="trip_end">
+          <input 
+          type="date"
+          name="trip_end"
+          placeholder="From:"
+          onChange={handleInputChange}
+          value={newTrip.trip_end}
           />
         </label>
         

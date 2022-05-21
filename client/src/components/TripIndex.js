@@ -14,7 +14,7 @@ const TripIndex = (props) => {
       }
       const body = await response.json();
       setTrips(body.trips);
-    } catch {
+    } catch (err) {
       console.error(`Error in fetch: ${err.message}`)
     }
   };

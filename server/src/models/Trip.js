@@ -13,13 +13,13 @@ class Trip extends Model {
         name: { type: "string" },
         location: { type: "string" },
         trip_start: { type: "string" },
-        trip_end: { type: "string" }
+        trip_end: { type: "string" },
       }
     };
   };
   
   static get relationMappings() {
-    const { Highlight } = require("./index.js");
+    const { Highlight, Pic } = require("./index.js");
 
     return {
       highlights: {
@@ -28,6 +28,14 @@ class Trip extends Model {
         join: {
           from: "trips.id",
           to: "highlights.tripId"
+        }
+      },
+      pics: {
+        relation: Model.HasManyRelation,
+        modelClass: Pic,
+        join: {
+          from: "trips.id",
+          to: "pics.tripId"
         }
       }
     }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import ErrorList from "./layout/ErrorList";
 import NewHighlightForm from "./NewHighlightForm.js";
+import NewPicForm from "./NewPicForm";
 
 const TripShowPage = (props) => {
-  const [trip, setTrip] = useState({ highlights: [] });
+  const [trip, setTrip] = useState({ highlights: [], pics: [] });
   const [errors, setErrors] = useState({});
   const { id } = props.match.params;
 
@@ -54,17 +55,55 @@ const TripShowPage = (props) => {
     }
   };
   console.log(trip)
+
   const highlightTiles = trip.highlights.map((highlight) => {
     return (
-      <ul>
-        <li key={highlight.id}>
+      <div>
+        <ul>
           <li>{highlight.dining}</li>
           <li>{highlight.activity}</li>
           <li>{highlight.note}</li>
-        </li>
-      </ul>
+        </ul>
+      </div>
     )
   })
+
+  const picTiles = trip.pics.map((pic) => {
+    return (
+      <div>
+        <h3>{pic.title}</h3>
+        <img src={pic.image} />
+      </div>
+    )
+  })
+
+  const postPic = async (newPic) => {
+    try {
+      const response = await fetch(`/api/v1/trips/${id}/pics`, {
+        method: "POST",
+        headers: {
+          "Accept": "image/jpeg"
+        },
+        body: newPic
+      })
+      if (!response.ok) {
+        if (response.status === 422) {
+          const body = await response.json()
+          setErrors(body.errors)
+        } else {
+          throw new Error(`${response.status} (${response.statusText})`);
+        }
+      }
+      const body = await response.json()
+      // setPics([
+      //   ...pics,
+      //   body.pic
+      // ])
+    } catch (error) {
+      console.log(error)
+      console.error(`Error in addPic fetch getch: ${error.message}`);
+    }
+  }
 
   return (
     <div>
@@ -73,9 +112,13 @@ const TripShowPage = (props) => {
       <p>{trip.trip_start}</p>
       <p>{trip.trip_end}</p>
       {highlightTiles}
+      {picTiles}
       <ErrorList errors={errors} />
       <NewHighlightForm 
       postHighlight={postHighlight}
+      />
+      <NewPicForm 
+      postPic={postPic}
       />
     </div>   
   )

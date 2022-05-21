@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const TripTile = (props) => {
-  const { name, location, trip_start, trip_end, id } = props.trip
+  const { name, location, trip_start, trip_end, pic, id } = props.trip
   return (
     <div>
         <ul>

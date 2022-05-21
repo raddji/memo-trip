@@ -107,12 +107,11 @@ const NewTripForm = ({ trips, setTrips }) => {
           value={newTrip.trip_end}
           />
         </label>
-        
+
         <input type="submit" className="button" value="Enter"/>
       </form>
     </div>
   )
-
 }
 
 export default NewTripForm;

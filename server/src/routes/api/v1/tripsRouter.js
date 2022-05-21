@@ -2,7 +2,8 @@ import express from "express"
 import { Trip } from "../../../models/index.js"
 import { ValidationError } from "objection";
 import cleanUserInput from "../../../services/cleanUserInput.js";
-import tripHighlightsRouter from "./highlightsRouter.js";
+import tripHighlightsRouter from "./tripHighlightsRouter.js";
+import tripPicsRouter from "./tripPicsRouter.js"
 
 const tripsRouter = new express.Router();
 
@@ -19,18 +20,18 @@ tripsRouter.get("/:id", async (req, res) => {
   try {
     const trip = await Trip.query().findById(req.params.id)
     trip.highlights = await trip.$relatedQuery("highlights");
+    trip.pics = await trip.$relatedQuery("pics");
     return res.status(200).json({ trip: trip })
   } catch (err) {
     console.log(err)
     return res.status(500).json({ errors: errors })
   }
 });
- 
+
 tripsRouter.post("/", async (req, res) => {
   try {
     const tripBody = cleanUserInput(req.body)
     const newTrip = await Trip.query().insertAndFetch(tripBody)
-    debugger
     return res.status(201).json({ newTrip })
     } catch (error) {
       if (error instanceof ValidationError) {
@@ -41,5 +42,6 @@ tripsRouter.post("/", async (req, res) => {
 })
 
 tripsRouter.use("/:tripId/highlights", tripHighlightsRouter)
+tripsRouter.use("/:tripId/pics", tripPicsRouter)
 
 export default tripsRouter;

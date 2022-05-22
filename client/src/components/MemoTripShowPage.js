@@ -3,19 +3,19 @@ import ErrorList from "./layout/ErrorList";
 import NewHighlightForm from "./NewHighlightForm.js";
 import NewPicForm from "./NewPicForm";
 
-const TripShowPage = (props) => {
-  const [trip, setTrip] = useState({ highlights: [], pics: [] });
+const MemoTripShowPage = (props) => {
+  const [memoTrip, setMemoTrip] = useState({ highlights: [], pics: [] });
   const [errors, setErrors] = useState({});
   const { id } = props.match.params;
 
-  const getTrip = async () => {
+  const getMemoTrip = async () => {
     try {
-      const response = await fetch(`/api/v1/trips/${id}`);
+      const response = await fetch(`/api/v1/memotrips/${id}`);
       if (!response.ok) {
         throw new Error(`${response.status} (${response.statusText})`);
       }
       const body = await response.json();
-      setTrip(body.trip)
+      setMemoTrip(body.memoTrip)
 
     } catch (err) {
       console.error(err);
@@ -23,12 +23,12 @@ const TripShowPage = (props) => {
   };
 
   useEffect(() => {
-    getTrip();
+    getMemoTrip();
   }, []);
 
   const postHighlight = async (highlightFormData) => {
     try {
-      const response = await fetch(`/api/v1/trips/${id}/highlights`, {
+      const response = await fetch(`/api/v1/memotrips/${id}/highlights`, {
         method: "POST",
         headers: new Headers({ "Content-Type": "application/json" }),
         body: JSON.stringify(highlightFormData)
@@ -45,18 +45,19 @@ const TripShowPage = (props) => {
         }
       } else {
         const highlight = await response.json();
-        const updatedHighlights = trip.highlights.concat(highlight);
-        console.log(trip)
+        const updatedHighlights = memoTrip.highlights.concat(highlight);
+        console.log(memoTrip)
         setErrors([]);
-        setTrip({...trip, highlights: updatedHighlights });
+        setMemoTrip({...memoTrip, highlights: updatedHighlights });
       }
     } catch (err) {
+      console.log(err)
       console.error(`error in fetch: ${err.message}`);
     }
   };
-  console.log(trip)
+  console.log(memoTrip)
 
-  const highlightTiles = trip.highlights.map((highlight) => {
+  const highlightTiles = memoTrip.highlights.map((highlight) => {
     return (
       <div>
         <ul>
@@ -68,7 +69,7 @@ const TripShowPage = (props) => {
     )
   })
 
-  const picTiles = trip.pics.map((pic) => {
+  const picTiles = memoTrip.pics.map((pic) => {
     return (
       <div>
         <h3>{pic.title}</h3>
@@ -79,7 +80,7 @@ const TripShowPage = (props) => {
 
   const postPic = async (newPic) => {
     try {
-      const response = await fetch(`/api/v1/trips/${id}/pics`, {
+      const response = await fetch(`/api/v1/memotrips/${id}/pics`, {
         method: "POST",
         headers: {
           "Accept": "image/jpeg"
@@ -100,17 +101,15 @@ const TripShowPage = (props) => {
       //   body.pic
       // ])
     } catch (error) {
-      console.log(error)
-      console.error(`Error in addPic fetch getch: ${error.message}`);
+      console.error(`Error in addPic fetch: ${error.message}`);
     }
   }
 
   return (
-    <div>
-      <h1>{trip.name}</h1>
-      <p>{trip.location}</p>
-      <p>{trip.trip_start}</p>
-      <p>{trip.trip_end}</p>
+    <div className="show-page-card">
+      <h1 className="decorative-font">{memoTrip.name}</h1>
+      <p>{memoTrip.location}</p>
+      <p>{memoTrip.date}</p>
       {highlightTiles}
       {picTiles}
       <ErrorList errors={errors} />
@@ -124,4 +123,4 @@ const TripShowPage = (props) => {
   )
 }
 
-export default TripShowPage;
+export default MemoTripShowPage;

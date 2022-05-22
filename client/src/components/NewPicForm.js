@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Dropzone from 'react-dropzone';
 
-const NewPicForm = (props) => {
+const NewPicForm = (props,) => {
   const [pic, setPic] = useState({
     title: "",
-    image: {}
+    image: {},
   })
 
   const [uploadedImage, setUploadedImage] = useState({
@@ -32,7 +32,7 @@ const NewPicForm = (props) => {
   const clearForm = () => {
     setPic({
       title: "",
-      image: {}
+      image: {},
     })
     setUploadedImage({
       preview: ""

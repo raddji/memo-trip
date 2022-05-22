@@ -1,4 +1,3 @@
-const objection = require("objection")
 const Model = require("./Model.js")
 
 class Pic extends Model {
@@ -9,12 +8,12 @@ class Pic extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["title", "image"],
+      required: ["title", "image", "memotripId"],
       properties: {
         title: { type: "string" },
         image: { type: "string" },
         userId: { type: ["integer", "string"] },
-        tripId: { type: ["integer", "string"] }
+        memotripId: { type: ["integer", "string"] }
       }
     }
   }

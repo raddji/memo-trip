@@ -3,16 +3,16 @@ import { ValidationError } from 'objection';
 import { Highlight } from "../../../models/index.js"
 import cleanUserInput from '../../../services/cleanUserInput.js';
 
-const tripHighlightsRouter = new express.Router({ mergeParams: true });
+const memoHighlightsRouter = new express.Router({ mergeParams: true });
 
-tripHighlightsRouter.post("/", async (req, res) => {
-  const { tripId } = req.params;
+memoHighlightsRouter.post("/", async (req, res) => {
+  const { memotripId } = req.params;
   try {
     const highlightsBody = req.body;
     const cleanedHighlightsBody = cleanUserInput(highlightsBody);
     const highlight = await Highlight.query().insertAndFetch({
       ...cleanedHighlightsBody,
-      tripId: tripId
+      memotripId: memotripId
     })
     console.log(highlight)
     return res.status(201).json(highlight);
@@ -25,4 +25,4 @@ tripHighlightsRouter.post("/", async (req, res) => {
   }
 })
 
-export default tripHighlightsRouter;
+export default memoHighlightsRouter;

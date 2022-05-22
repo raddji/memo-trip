@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 import { connection } from "../boot.js"
-import TripSeeder from "./seeders/TripSeeder.js"
+import MemoTripSeeder from "./seeders/TripSeeder.js"
 import HighlightSeeder from "./seeders/HighlightSeeder.js";
 
 class Seeder {
   static async seed() {
 
     console.log("Seeding trips...")
-    await TripSeeder.seed();
+    await MemoTripSeeder.seed();
 
     console.log("Seeding highlights...")
     await HighlightSeeder.seed();

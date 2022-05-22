@@ -32,11 +32,12 @@ const TopBar = ({ user }) => {
       <div className="top-bar-right">
         <ul className="menu">
           <li>
-            <Link to="/trips/new">
-              Add a new trip
+            <Link to="/memotrips/new">
+              Add a new memory
             </Link>
           </li>
-          {user ? authenticatedListItems : unauthenticatedListItems}</ul>
+          {user ? authenticatedListItems : unauthenticatedListItems}
+        </ul>
       </div>
     </div>
   );

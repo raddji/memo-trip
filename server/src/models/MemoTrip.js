@@ -1,19 +1,18 @@
 const Model = require("./Model.js")
 
-class Trip extends Model {
+class MemoTrip extends Model {
   static get tableName() {
-    return "trips"
+    return "memotrips"
   }
 
   static get jsonSchema() {
     return {
       type: "object", 
-      required: ["name", "location", "trip_start", "trip_end"],
+      required: ["name", "location"],
       properties: {
         name: { type: "string" },
         location: { type: "string" },
-        trip_start: { type: "string" },
-        trip_end: { type: "string" },
+        date: { type: "string" },
       }
     };
   };
@@ -26,20 +25,20 @@ class Trip extends Model {
         relation: Model.HasManyRelation,
         modelClass: Highlight,
         join: {
-          from: "trips.id",
-          to: "highlights.tripId"
+          from: "memotrips.id",
+          to: "highlights.memotripId"
         }
       },
       pics: {
         relation: Model.HasManyRelation,
         modelClass: Pic,
         join: {
-          from: "trips.id",
-          to: "pics.tripId"
+          from: "memotrips.id",
+          to: "pics.memotripId"
         }
       }
     }
   }
 };
 
-module.exports = Trip;
+module.exports = MemoTrip;

@@ -4,10 +4,10 @@ import { Pic } from "../../../models/index.js"
 import cleanUserInput from "../../../services/cleanUserInput.js"
 import uploadImage from "../../../services/uploadImage.js";
 
-const tripPicsRouter = new express.Router({ mergeParams: true });
+const memoPicsRouter = new express.Router({ mergeParams: true });
 
-tripPicsRouter.post("/", uploadImage.single("image"), async (req, res) => {
-  const { tripId } = req.params;
+memoPicsRouter.post("/", uploadImage.single("image"), async (req, res) => {
+  const { memotripId } = req.params;
   try {
     const { body } = req
     const bodyInput = await cleanUserInput(body)
@@ -16,7 +16,7 @@ tripPicsRouter.post("/", uploadImage.single("image"), async (req, res) => {
       ...bodyInput,
       image: req.file.location,
       userId: req.user.id,
-      tripId: tripId
+      memotripId: memotripId
     }
     console.log(formData)
     console.log(req.file)
@@ -32,4 +32,4 @@ tripPicsRouter.post("/", uploadImage.single("image"), async (req, res) => {
   }
 })
 
-export default tripPicsRouter;
+export default memoPicsRouter;

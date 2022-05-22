@@ -1,7 +1,13 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Varela+Round&family=Yanone+Kaffeesatz:wght@500&display=swap');
 @include foundation-everything;
-// place global css here
+
+body {
+  background-color: $primary-color;
+  font-family: 'Varela Round', sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -12,3 +18,76 @@
   -moz-tab-size: 4;
   tab-size: 4;
 }
+
+ul.landing-menu {
+  list-style-type: none;
+}
+
+.landing-card {
+  width: 500px;
+  height: 250px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: $secondary-color;
+  text-align: center;
+}
+
+.decorative-font {
+  font-family: 'Pacifico', cursive;
+}
+
+.content-box {
+  display: flex;
+  width: 800px;
+  height: auto;
+}
+
+.show-page-card {
+  width: 500px;
+  height: 250px;
+  margin: auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.memory-name-color {
+  color: #F7B801;
+}
+
+.add-radius {
+  border-radius: 20px;
+}
+
+.landing-card:hover {
+  background-color: #F18701;
+  color: #3D348B;
+}
+
+.title {
+  font-family: "Pacifico", cursive;
+  font-size: 3em;
+  color: #F7B801;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar {
+  background-color: #F18701;
+}
+
+ul.menu {
+  background-color: #F18701;
+  color: #3D348B;
+  a {
+    color: #3D348B;
+  }
+}
+
+h2.decorative-font.show-page-card {
+    padding-top: 50px;
+}
+

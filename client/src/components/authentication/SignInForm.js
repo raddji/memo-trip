@@ -62,11 +62,11 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/";
+    location.href = "/trips";
   }
 
   return (
-    <div className="grid-container" onSubmit={onSubmit}>
+    <div className="grid-container show-page-card" onSubmit={onSubmit}>
       <h1>Sign In</h1>
       <form>
         <div>

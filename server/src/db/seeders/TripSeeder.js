@@ -1,31 +1,31 @@
-import { Trip } from "../../models/index.js";
+import { MemoTrip } from "../../models/index.js";
 
-class TripSeeder {
+class MemoTripSeeder {
   static async seed() {
-    const tripData = [
+    const memoTripData = [
       {
         name: "Japan Spring Trip",
         location: "Tokyo, Kyoto, Okinawa",
-        date: "March 3, 2024"
+        date: "March 20, 2023"
       },
       {
         name: "Yosemite National Park Summer Trip",
         location: "East-central California",
-        date: "June 15, 2023"
+        date: "July 20, 2023"
       },
       {
         name: "Winter Iceland Trip",
         location: "Reykjavik, Iceland",
-        date: "December 11, 2023"
+        date: "December 20, 2023"
       }
     ];
-    for (const singleTripData of tripData) {
-      const currentTrip = await Trip.query().findOne(singleTripData);
-      if (!currentTrip) {
-        await Trip.query().insert(singleTripData);
+    for (const singleMemoTripData of memoTripData) {
+      const currentMemoTrip = await MemoTrip.query().findOne(singleMemoTripData);
+      if (!currentMemoTrip) {
+        await MemoTrip.query().insert(singleMemoTripData);
       }
     }
   }
 }
 
-export default TripSeeder;
+export default MemoTripSeeder;

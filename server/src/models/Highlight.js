@@ -8,25 +8,24 @@ class Highlight extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["tripId"],
       properties: {
         dining: { type: "string" },
         activity: { type: "string" },
         note: { type: "string" },
-        tripId: { type: "integer" }
+        memotripId: { type: ["string", "integer"] }
       }
     }
   }
 
   static get relationMappings() {
-    const { Trip } = require("./index.js");
+    const { MemoTrip } = require("./index.js");
     return {
-      trip: {
+      memoTrip: {
         relation: Model.BelongsToOneRelation,
-        modelClass: Trip, 
+        modelClass: MemoTrip, 
         join: {
-          from: "highlights.tripId",
-          to: "trips.id"
+          from: "highlights.memotripId",
+          to: "memotrips.id"
         }
       }
     }

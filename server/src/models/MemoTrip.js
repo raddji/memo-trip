@@ -8,11 +8,12 @@ class MemoTrip extends Model {
   static get jsonSchema() {
     return {
       type: "object", 
-      required: ["name", "location"],
+      required: ["name", "where", "when", "what"],
       properties: {
         name: { type: "string" },
-        location: { type: "string" },
-        date: { type: "string" },
+        where: { type: "string" },
+        when: { type: "string" },
+        what: { type: "string" }
       }
     };
   };

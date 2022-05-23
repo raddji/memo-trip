@@ -5,18 +5,21 @@ class MemoTripSeeder {
     const memoTripData = [
       {
         name: "Japan Spring Trip",
-        location: "Tokyo, Kyoto, Okinawa",
-        date: "March 20, 2023"
+        where: "Tokyo, Kyoto, Okinawa",
+        when: "March 20, 2015",
+        what: "Best times ever!"
       },
       {
         name: "Yosemite National Park Summer Trip",
-        location: "East-central California",
-        date: "July 20, 2023"
+        where: "East-central California",
+        when: "July 20, 2018",
+        what: "Beautiful weather all along. Saw a bear!"
       },
       {
         name: "Winter Iceland Trip",
-        location: "Reykjavik, Iceland",
-        date: "December 20, 2023"
+        where: "Reykjavik, Iceland",
+        when: "December 20, 2009",
+        what: "Loved swimming under the aurora borealis."
       }
     ];
     for (const singleMemoTripData of memoTripData) {

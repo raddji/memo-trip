@@ -6,8 +6,9 @@ import ErrorList from "./layout/ErrorList.js";
 const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
   const [newMemoTrip, setNewMemoTrip] = useState({
     name: "",
-    location: "",
-    date: ""
+    where: "",
+    when: "",
+    what: ""
   });
 
   const [errors, setErrors] = useState([]);
@@ -58,8 +59,9 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
   const clearForm = () => {
     setNewMemoTrip({
     name: "",
-    location: "",
-    date: ""
+    where: "",
+    when: "",
+    what: ""
     })
   }
   
@@ -74,30 +76,39 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
             type="text" 
             name="name" 
             className="add-radius"
-            placeholder="Name My Trip"
+            placeholder="Give it a name:"
             onChange={handleInputChange}
             value={newMemoTrip.name}
             />
           </label>
-          <label htmlFor="location">
+          <label htmlFor="where">
             <input 
             type="text"
-            name="location"
+            name="where"
             className="add-radius"
-            placeholder="Location"
+            placeholder="Where was it:"
             onChange={handleInputChange}
-            value={newMemoTrip.location}
-
+            value={newMemoTrip.where}
             />
           </label>
-          <label htmlFor="date">
+          <label htmlFor="when">
             <input 
-            type="date"
-            name="date"
+            type="text"
+            name="when"
             className="add-radius"
-            placeholder="From:"
+            placeholder="When:"
             onChange={handleInputChange}
-            value={newMemoTrip.date}
+            value={newMemoTrip.when}
+            />
+          </label>
+          <label htmlFor="what">
+            <input 
+            type="text"
+            name="what"
+            className="add-radius"
+            placeholder="What do you want to remember:"
+            onChange={handleInputChange}
+            value={newMemoTrip.what}
             />
           </label>
           

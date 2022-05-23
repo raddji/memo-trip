@@ -62,7 +62,7 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/trips";
+    location.href = "/memotrips";
   }
 
   return (

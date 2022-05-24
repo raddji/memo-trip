@@ -3,6 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Varela+Round&family=Yanone+Kaffeesatz:wght@500&display=swap');
 @include foundation-everything;
 
+.images {
+  border: 1px solid red;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
 body {
   background-color: $primary-color;
   font-family: 'Varela Round', sans-serif;
@@ -91,4 +98,3 @@ ul.menu {
 h2.decorative-font.show-page-card {
     padding-top: 50px;
 }
-

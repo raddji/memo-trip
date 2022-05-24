@@ -31,9 +31,10 @@ memoTripsRouter.get("/:id", async (req, res) => {
 memoTripsRouter.post("/", async (req, res) => {
   try {
     const memoTripBody = cleanUserInput(req.body)
-    const newMemoTrip = await MemoTrip.query().insertAndFetch(memoTripBody)
-    return res.status(201).json({ newMemoTrip })
+    const newMemoTripData = await MemoTrip.query().insertAndFetch(memoTripBody)
+    return res.status(201).json({ newMemoTripData })
     } catch (error) {
+      console.log(error)
       if (error instanceof ValidationError) {
         return res.status(422).json({ errors: error.data })
       }
@@ -41,7 +42,8 @@ memoTripsRouter.post("/", async (req, res) => {
   }
 })
 
-memoTripsRouter.use("/:tripId/highlights", memoHighlightsRouter)
-memoTripsRouter.use("/:tripId/pics", memoPicsRouter)
-
+memoTripsRouter.use("/:memotripId/highlights", memoHighlightsRouter)
+// memoTripsRouter.use("/:tripId/pics", memoPicsRouter)
+memoTripsRouter.use("/:memotripId/pics", memoPicsRouter)
+// ^^ nested routers are really only for POST, UPDATE, DELETE for the specific requests
 export default memoTripsRouter;

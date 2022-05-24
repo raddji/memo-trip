@@ -50,6 +50,7 @@ const NewPicForm = (props,) => {
 
   return (
     <form className="callout primary" onSubmit={handleSubmit}>
+      <h3 className="decorative-font">Add Photos:</h3>
       <div>
         <label htmlFor="title">
         <input
@@ -61,12 +62,14 @@ const NewPicForm = (props,) => {
         />
         </label>
       </div>
+      
 
       <Dropzone onDrop={handleImageUpload}>
         {({getRootProps, getInputProps}) => (
           <section>
             <div {...getRootProps()}>
               <input {...getInputProps()} />
+              
               <p>Upload Some Favorite Moments - drag 'n' drop or click to upload</p>
             </div>
           </section>

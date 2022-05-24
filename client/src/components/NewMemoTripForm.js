@@ -15,7 +15,7 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   if (shouldRedirect) {
-    return <Redirect to="/trips" />
+    return <Redirect to="/memotrips" />
   }
 
   const postNewMemoTrip = async (newMemoTripData) => {
@@ -30,6 +30,7 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
           const body = await response.json();
           const newErrors = translateServerErrors(body.errors);
           setErrors(newErrors);
+          console.log(newErrors)
         } else {
           throw new Error(`${response.status} (${response.statusText})`);
         } 
@@ -93,7 +94,7 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
           </label>
           <label htmlFor="when">
             <input 
-            type="text"
+            type="date"
             name="when"
             className="add-radius"
             placeholder="When:"

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react"
 import ErrorList from "./layout/ErrorList";
 import NewHighlightForm from "./NewHighlightForm.js";
+import HighlightTile from "./HighlightTile.js"
 import NewPicForm from "./NewPicForm";
+import PicTile from "./PicTile";
+import translateServerErrors from "../../../client/src/services/translateServerErrors.js"
 
 const MemoTripShowPage = (props) => {
   const [memoTrip, setMemoTrip] = useState({ highlights: [], pics: [] });
@@ -46,7 +49,7 @@ const MemoTripShowPage = (props) => {
       } else {
         const highlight = await response.json();
         const updatedHighlights = memoTrip.highlights.concat(highlight);
-        console.log(memoTrip)
+        console.log(memoTrip.highlights)
         setErrors([]);
         setMemoTrip({...memoTrip, highlights: updatedHighlights });
       }
@@ -58,24 +61,11 @@ const MemoTripShowPage = (props) => {
   console.log(memoTrip)
 
   const highlightTiles = memoTrip.highlights.map((highlight) => {
-    return (
-      <div>
-        <ul>
-          <li>{highlight.dining}</li>
-          <li>{highlight.activity}</li>
-          <li>{highlight.note}</li>
-        </ul>
-      </div>
-    )
+    return <HighlightTile key={highlight.id} highlight={highlight} />
   })
 
   const picTiles = memoTrip.pics.map((pic) => {
-    return (
-      <div>
-        <h3>{pic.title}</h3>
-        <img src={pic.image} />
-      </div>
-    )
+    return <PicTile key={pic.id} pic={pic} />
   })
 
   const postPic = async (newPic) => {
@@ -90,9 +80,14 @@ const MemoTripShowPage = (props) => {
       if (!response.ok) {
         if (response.status === 422) {
           const body = await response.json()
-          setErrors(body.errors)
+          console.log(body.errors)
+          // translate server errors
+          const newErrors = translateServerErrors(body.errors);
+          return setErrors(newErrors)
         } else {
-          throw new Error(`${response.status} (${response.statusText})`);
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage);
+          throw error;
         }
       }
       const body = await response.json()
@@ -106,12 +101,15 @@ const MemoTripShowPage = (props) => {
   }
 
   return (
-    <div className="show-page-card">
+    <div className="">
       <h1 className="decorative-font">{memoTrip.name}</h1>
-      <p>{memoTrip.location}</p>
-      <p>{memoTrip.date}</p>
+      <p>{memoTrip.where}</p>
+      <p>{memoTrip.when}</p>
+      <p>{memoTrip.what}</p>
       {highlightTiles}
-      {picTiles}
+      
+          <p>{picTiles}</p>
+
       <ErrorList errors={errors} />
       <NewHighlightForm 
       postHighlight={postHighlight}

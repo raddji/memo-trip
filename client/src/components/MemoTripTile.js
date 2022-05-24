@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const MemoTripTile = (props) => {
   const { name, where, when, what, pic, id } = props.memoTrip
   return (
-    <div>
+    <div className="card landing-card">
         <ul>
           <Link to={`/memotrips/${id}`}>
           <li className="memory-name-color">{name}</li>

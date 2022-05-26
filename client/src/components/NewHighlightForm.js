@@ -29,7 +29,7 @@ const NewHighlightForm = ({ postHighlight }) => {
   };
 
   return (
-    <div>
+    <div className="show-page-card">
       <h3 className="decorative-font">Memory Highlights: </h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="dining">
@@ -39,6 +39,7 @@ const NewHighlightForm = ({ postHighlight }) => {
           placeholder="Yummy facts about this memory"
           onChange={handleInputChange}
           value={newHighlight.dining}
+          className="add-radius"
           />
         </label>
         <label htmlFor="activity">
@@ -48,6 +49,7 @@ const NewHighlightForm = ({ postHighlight }) => {
           placeholder="Activities I want to remember"
           onChange={handleInputChange}
           value={newHighlight.activity}
+          className="add-radius"
           />
         </label>
         <label htmlFor="note">
@@ -57,6 +59,7 @@ const NewHighlightForm = ({ postHighlight }) => {
           placeholder="Anything else to share" 
           onChange={handleInputChange}
           value={newHighlight.note}
+          className="add-radius"
           />
         </label>
 

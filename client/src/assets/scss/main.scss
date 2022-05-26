@@ -3,13 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Varela+Round&family=Yanone+Kaffeesatz:wght@500&display=swap');
 @include foundation-everything;
 
-.images {
-  border: 1px solid red;
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-}
-
 body {
   background-color: $primary-color;
   font-family: 'Varela Round', sans-serif;
@@ -31,29 +24,31 @@ ul.landing-menu {
   list-style-type: none;
 }
 
+div#app {
+  border: 1px solid red;
+}
+
 .landing-card {
   width: 500px;
   height: 250px;
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
   border-radius: 10px;
   background-color: $secondary-color;
   text-align: center;
+  filter: drop-shadow(0 0 0.75rem #F7B801);
 }
 
 .decorative-font {
   font-family: 'Pacifico', cursive;
 }
 
-.content-box {
-  display: flex;
-  width: 800px;
-  height: auto;
-}
-
 .show-page-card {
   width: 500px;
-  height: 250px;
+  height: auto;
   margin: auto;
+  margin-bottom: 10px;
   border-radius: 10px;
   text-align: center;
 }
@@ -85,10 +80,12 @@ ul li {
 
 .top-bar {
   background-color: #F18701;
+  background-image: url("../../../public/images/topbar.jpg");
 }
 
 ul.menu {
   background-color: #F18701;
+  background-image: url("../../../public/images/topbar.jpg");
   color: #3D348B;
   a {
     color: #3D348B;
@@ -97,4 +94,80 @@ ul.menu {
 
 h2.decorative-font.show-page-card {
     padding-top: 50px;
+}
+
+.highlight-form {
+  margin-top: 150px;
+}
+
+.images-center {
+  display: flex;
+  align-content: center;
+}
+.images {
+  display: inline-block;
+}
+
+.image-style {
+  padding: 1em;
+}
+.image-size {
+  width: 200px;
+  height: auto;
+}
+
+.index-card {
+  width: 500px;
+  height: 150px;
+  margin-top: 1em 0 0 0;
+  border-radius: 10px;
+  background-color: #F7B801;
+  color: #3D348B;
+  text-align: center;
+  padding: 1em;
+}
+
+.index-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.highlight-card {
+  width: auto;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 1px solid #F7B801;
+  background-color: #3D348B;
+  color: #F7B801;
+  text-align: center;
+  padding: 1em;
+}
+
+.pic-form-card {
+  width: auto;
+  height: auto;
+  padding: 1em;
+  margin-top: 20px;
+  background-color: #F18701;
+  text-align: center;
+  border: 7px solid #F7B801;
+}
+
+.show-memory-card {
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #F7B801;
+}
+
+h3.decorative-font {
+  text-align: center;
+}
+
+.sign-out-button {
+  background-color: #3D348B;
+  filter: drop-shadow(0 0 0.175rem #F7B801);
 }

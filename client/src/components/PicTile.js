@@ -3,10 +3,14 @@ import React from 'react'
 const PicTile = (props) => {
   const { title, image } = props.pic
   return (
-  <div className="images">
-    <div>
-      <h3>{title}</h3>
-      <img src={image} />
+  <div className="images-center">
+    <div className="images">
+      <div className="image-style">
+        <figure>
+          <img src={image} className="image-size card landing-card" />
+          <figcaption>{title}</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
   )

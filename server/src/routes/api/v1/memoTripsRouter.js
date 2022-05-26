@@ -43,7 +43,6 @@ memoTripsRouter.post("/", async (req, res) => {
 })
 
 memoTripsRouter.use("/:memotripId/highlights", memoHighlightsRouter)
-// memoTripsRouter.use("/:tripId/pics", memoPicsRouter)
 memoTripsRouter.use("/:memotripId/pics", memoPicsRouter)
 // ^^ nested routers are really only for POST, UPDATE, DELETE for the specific requests
 export default memoTripsRouter;

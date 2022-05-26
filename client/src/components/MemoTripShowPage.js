@@ -4,6 +4,7 @@ import NewHighlightForm from "./NewHighlightForm.js";
 import HighlightTile from "./HighlightTile.js"
 import NewPicForm from "./NewPicForm";
 import PicTile from "./PicTile";
+import Map from "./Map";
 import translateServerErrors from "../../../client/src/services/translateServerErrors.js"
 
 const MemoTripShowPage = (props) => {
@@ -91,10 +92,6 @@ const MemoTripShowPage = (props) => {
         }
       }
       const body = await response.json()
-      // setPics([
-      //   ...pics,
-      //   body.pic
-      // ])
     } catch (error) {
       console.error(`Error in addPic fetch: ${error.message}`);
     }
@@ -102,21 +99,33 @@ const MemoTripShowPage = (props) => {
 
   return (
     <div className="">
-      <h1 className="decorative-font">{memoTrip.name}</h1>
-      <p>{memoTrip.where}</p>
-      <p>{memoTrip.when}</p>
-      <p>{memoTrip.what}</p>
-      {highlightTiles}
-      
-          <p>{picTiles}</p>
-
+      <div className="card show-memory-card">
+        <h1 className="decorative-font">{memoTrip.name}</h1>
+        <p>{memoTrip.where}</p>
+        {/* <p>{memoTrip.when}</p> */}
+        <p>{memoTrip.what}</p>
+      </div>
+      <div>
+        {highlightTiles}
+      </div>
+      <div> 
+        <Map />
+      </div>
+      <h3 className="decorative-font">Best pics</h3>
+      <div className="images-center">
+        {picTiles}
+      </div>
+      <div className="highlight-form">
       <ErrorList errors={errors} />
       <NewHighlightForm 
       postHighlight={postHighlight}
       />
+      </div>
+      <div>
       <NewPicForm 
       postPic={postPic}
       />
+      </div>
     </div>   
   )
 }

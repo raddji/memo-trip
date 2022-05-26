@@ -25,17 +25,18 @@ const TopBar = ({ user }) => {
       <div className="top-bar-left">
         <ul className="menu">
           <li className="menu-text">
-            <Link to="/">Memo Trip</Link>
+            <Link to="/">MemoTrip
+              </Link>
           </li>
         </ul>
       </div>
       <div className="top-bar-right">
         <ul className="menu">
-          <li>
+          {/* <li>
             <Link to="/memotrips/new">
               Add a new memory
             </Link>
-          </li>
+          </li> */}
           {user ? authenticatedListItems : unauthenticatedListItems}
         </ul>
       </div>

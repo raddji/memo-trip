@@ -8,6 +8,7 @@ import Map from "./Map";
 import translateServerErrors from "../../../client/src/services/translateServerErrors.js"
 
 const MemoTripShowPage = (props) => {
+
   const [memoTrip, setMemoTrip] = useState({ highlights: [], pics: [] });
   const [errors, setErrors] = useState({});
   const { id } = props.match.params;
@@ -50,7 +51,6 @@ const MemoTripShowPage = (props) => {
       } else {
         const highlight = await response.json();
         const updatedHighlights = memoTrip.highlights.concat(highlight);
-        console.log(memoTrip.highlights)
         setErrors([]);
         setMemoTrip({...memoTrip, highlights: updatedHighlights });
       }
@@ -59,7 +59,6 @@ const MemoTripShowPage = (props) => {
       console.error(`error in fetch: ${err.message}`);
     }
   };
-  console.log(memoTrip)
 
   const highlightTiles = memoTrip.highlights.map((highlight) => {
     return <HighlightTile key={highlight.id} highlight={highlight} />
@@ -92,6 +91,8 @@ const MemoTripShowPage = (props) => {
         }
       }
       const body = await response.json()
+      setMemoTrip({...memoTrip, pics:[...memoTrip.pics, body.pic] })
+
     } catch (error) {
       console.error(`Error in addPic fetch: ${error.message}`);
     }
@@ -108,6 +109,7 @@ const MemoTripShowPage = (props) => {
       <div>
         {highlightTiles}
       </div>
+      <div id="map"></div>
       <div> 
         <Map />
       </div>

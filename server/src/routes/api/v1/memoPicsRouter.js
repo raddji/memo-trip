@@ -18,8 +18,8 @@ memoPicsRouter.post("/", uploadImage.single("image"), async (req, res) => {
       userId: req.user.id,
       memotripId: memotripId
     }
-    console.log(formData)
-    console.log(req.file)
+    // console.log(formData)
+    // console.log(req.file)
 
     const pic = await Pic.query().insertAndFetch(formData)
     return res.status(201).json({ pic })

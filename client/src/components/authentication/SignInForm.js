@@ -62,7 +62,7 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/memotrips";
+    location.href = "/";
   }
 
   return (

@@ -5,15 +5,18 @@ import GoogleMapsClient from "../../../apiClient/googleMapsClient.js";
 const googleMapsRouter = new express.Router();
 
 googleMapsRouter.get('/', async (req, res) => {
-  const address = req.query.address;
+  // const userInput = req.query.searchBarInput;
+  const userInput = "Boston";
 
   try {
-    const googleMapsResponse = await GoogleMapsClient.getAddress(address);
+    const googleMapsResponse = await GoogleMapsClient.getAddress(userInput);
     const googleMapsData = JSON.parse(googleMapsResponse);
+    console.log("backend res from got:", googleMapsData)
     return res 
-      .set({ "Content-Type": "application/json" })
-      .status(200)
-      .json(googleMapsData)
+    .set({ "Content-Type": "application/json" })
+    .status(200)
+    .json(googleMapsData)
+    
   } catch (error) {
     return res.status(401).json({ errors: error })
   }

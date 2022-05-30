@@ -6,6 +6,11 @@ import memoHighlightsRouter from "./memoHighlightsRouter.js";
 import memoPicsRouter from "./memoPicsRouter.js"
 
 const memoTripsRouter = new express.Router();
+//migration and model for nyt article
+//need a got req to use third party data
+//get response and serialize to match model
+//insert and fetch model from serialized response
+//return model to front end
 
 memoTripsRouter.get("/", async (req, res) => {
   try {
@@ -21,7 +26,9 @@ memoTripsRouter.get("/:id", async (req, res) => {
     const memoTrip = await MemoTrip.query().findById(req.params.id);
     memoTrip.highlights = await memoTrip.$relatedQuery("highlights");
     memoTrip.pics = await memoTrip.$relatedQuery("pics");
+    // console.log("get req for id trip:", req.body)
     return res.status(200).json({ memoTrip: memoTrip })
+    
   } catch (err) {
     console.log(err)
     return res.status(500).json({ errors: errors })
@@ -31,9 +38,10 @@ memoTripsRouter.get("/:id", async (req, res) => {
 memoTripsRouter.post("/", async (req, res) => {
   try {
     const memoTripBody = cleanUserInput(req.body)
+    // console.log("req.body of post", req.body)
     const newMemoTripData = await MemoTrip.query().insertAndFetch(memoTripBody)
     return res.status(201).json({ newMemoTripData })
-    } catch (error) {
+  } catch (error) {
       console.log(error)
       if (error instanceof ValidationError) {
         return res.status(422).json({ errors: error.data })

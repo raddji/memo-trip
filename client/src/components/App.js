@@ -56,7 +56,7 @@ const App = ({ props, user }) => {
       <TopBar user={currentUser} />
       <Switch>
         <Route exact path="/">
-          <h3 className="decorative-font show-page-card">Memo Trip: a digital memory scrapbook catalog</h3>
+          <h3 className="decorative-font show-page-card">Memo Trip: a digital memory scrapbook</h3>
           <div>
             {user ? authenticatedListItems : unauthenticatedListItems}
         </div>

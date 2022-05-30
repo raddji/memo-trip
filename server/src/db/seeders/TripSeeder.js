@@ -4,22 +4,22 @@ class MemoTripSeeder {
   static async seed() {
     const memoTripData = [
       {
-        name: "Japan Spring Trip",
-        where: "Tokyo, Kyoto, Okinawa",
-        when: "March 20, 2015",
+        name: "Birthday Month",
+        where: "Maui, Hawai'i",
+        when: "November 1, 2022",
         what: "Best times ever!"
       },
       {
-        name: "Yosemite National Park Summer Trip",
-        where: "East-central California",
-        when: "July 20, 2018",
-        what: "Beautiful weather all along. Saw a bear!"
+        name: "Kalalau Trail Hike",
+        where: "Kauai Na'pali Coast",
+        when: "November 17, 2021",
+        what: "Most beautiful and challenging 22 mile hike along the Napali coast!"
       },
       {
-        name: "Winter Iceland Trip",
-        where: "Reykjavik, Iceland",
-        when: "December 20, 2009",
-        what: "Loved swimming under the aurora borealis."
+        name: "Launch Academy Graduation Party",
+        where: "Boston, MA",
+        when: "May 31, 2022",
+        what: "Work well done, Cohort 36!"
       }
     ];
     for (const singleMemoTripData of memoTripData) {

@@ -25,7 +25,6 @@ ul.landing-menu {
 }
 
 div#app {
-  border: 1px solid red;
 }
 
 .landing-card {
@@ -58,7 +57,12 @@ ul li {
 }
 
 .memory-name-color {
-  color: #F7B801;
+  color: #F35B04;
+  font-weight: 800;
+}
+
+.memory-name-color:hover {
+  color: #3D348B;
 }
 
 .add-radius {
@@ -81,6 +85,7 @@ ul li {
 .top-bar {
   background-color: #F18701;
   background-image: url("../../../public/images/topbar.jpg");
+  height: 80px;
 }
 
 ul.menu {
@@ -117,7 +122,7 @@ h2.decorative-font.show-page-card {
 }
 
 .index-card {
-  width: 500px;
+  width: 400px;
   height: 150px;
   margin-top: 1em 0 0 0;
   border-radius: 10px;
@@ -125,6 +130,9 @@ h2.decorative-font.show-page-card {
   color: #3D348B;
   text-align: center;
   padding: 1em;
+  border: 3px solid #f35b04;
+  filter: drop-shadow(0 0 0.175rem #F7B801);
+
 }
 
 .index-cards {

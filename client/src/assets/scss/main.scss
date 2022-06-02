@@ -4,9 +4,14 @@
 @include foundation-everything;
 
 body {
-  background-color: $primary-color;
   font-family: 'Varela Round', sans-serif;
   background-repeat: no-repeat;
+}
+
+.memos {
+  background-image: url("../../../public/images/s-tsuchiya-Fo9-xcI1J_8-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 *,
@@ -24,19 +29,30 @@ ul.landing-menu {
   list-style-type: none;
 }
 
-div#app {
+.pic-landing-card {
+  width: 300px;
+  height: 250px;
+  margin: auto;
+  border-radius: 5px;
 }
 
+figcaption {
+  color: #fff;
+}
 .landing-card {
-  width: 500px;
+  width: 400px;
   height: 250px;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   border-radius: 10px;
-  background-color: $secondary-color;
+  opacity: 0.5;
   text-align: center;
   filter: drop-shadow(0 0 0.75rem #F7B801);
+}
+
+.landing-card:hover {
+  opacity: 0.65;
 }
 
 .decorative-font {
@@ -62,16 +78,12 @@ ul li {
 }
 
 .memory-name-color:hover {
-  color: #3D348B;
+  color: #164766;
+  opacity: 1;
 }
 
 .add-radius {
   border-radius: 20px;
-}
-
-.landing-card:hover {
-  background-color: #F18701;
-  color: #3D348B;
 }
 
 .title {
@@ -83,18 +95,11 @@ ul li {
 }
 
 .top-bar {
-  background-color: #F18701;
-  background-image: url("../../../public/images/topbar.jpg");
   height: 80px;
 }
 
-ul.menu {
-  background-color: #F18701;
-  background-image: url("../../../public/images/topbar.jpg");
-  color: #3D348B;
-  a {
-    color: #3D348B;
-  }
+.ul-menu-color {
+  color: #3D6590;
 }
 
 h2.decorative-font.show-page-card {
@@ -122,23 +127,26 @@ h2.decorative-font.show-page-card {
 }
 
 .index-card {
-  width: 400px;
+  width: 100px;
   height: 150px;
   margin-top: 1em 0 0 0;
   border-radius: 10px;
-  background-color: #F7B801;
-  color: #3D348B;
   text-align: center;
   padding: 1em;
-  border: 3px solid #f35b04;
+  opacity: 0.65;
   filter: drop-shadow(0 0 0.175rem #F7B801);
+}
 
+.flex-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .index-cards {
   display: flex;
-  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .highlight-card {
@@ -146,9 +154,7 @@ h2.decorative-font.show-page-card {
   height: auto;
   margin-right: 20px;
   border-radius: 10px;
-  border: 1px solid #F7B801;
-  background-color: #3D348B;
-  color: #F7B801;
+  opacity: 0.6;
   text-align: center;
   padding: 1em;
 }
@@ -169,13 +175,60 @@ h2.decorative-font.show-page-card {
   margin-bottom: 20px;
   text-align: center;
   background-color: #F7B801;
+  opacity: 0.65;
 }
 
 h3.decorative-font {
   text-align: center;
+  color: #FFF;
 }
 
 .sign-out-button {
-  background-color: #3D348B;
-  filter: drop-shadow(0 0 0.175rem #F7B801);
+  background-color: #3D6590;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 0.175rem #3d6590);
+}
+
+.sign-up-button {
+  background-color: #3D6590;
+  color: #fff;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 0.175rem #3d6590);
+}
+
+.sign-up-button:hover {
+  background-color: #3D6590;
+  color: #fff;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 0.175rem #3d6590);
+  opacity: 0.6;
+}
+
+.sign-out-button:hover {
+  background-color: #B3994E;
+  color: #fff;
+}
+
+.nyt-article {
+  color: #FFF;
+}
+
+.highlight-enter {
+  background-color: #fff;
+  color: #3D6590;
+}
+
+.pic-buttons {
+  color: #3d6590;
+  background-color: #fff;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.pic-buttons:hover {
+  background-color: #3d6590;
+  color: #fff;
+}
+.top-bar-text {
+  color: #FFF;
 }

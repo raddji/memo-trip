@@ -7,7 +7,7 @@ const PicTile = (props) => {
     <div className="images">
       <div className="image-style">
         <figure>
-          <img src={image} className="image-size card landing-card" />
+          <img src={image} className="image-size card pic-landing-card" />
           <figcaption>{title}</figcaption>
         </figure>
       </div>

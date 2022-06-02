@@ -18,7 +18,7 @@ const App = ({ props, user }) => {
   const [currentUser, setCurrentUser] = useState(undefined);
 
   const unauthenticatedListItems = [
-    <div>
+    <div key="memos" className="">
       <Link to="/memotrips">
         <li key="memories" className="card landing-card title">
         Memories

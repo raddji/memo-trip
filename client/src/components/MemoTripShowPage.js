@@ -106,16 +106,16 @@ const MemoTripShowPage = (props) => {
         {/* <p>{memoTrip.when}</p> */}
         <p>{memoTrip.what}</p>
       </div>
+      <h3 className="decorative-font">Best pics</h3>
+      <div className="images-center">
+        {picTiles}
+      </div>
       <div>
         {highlightTiles}
       </div>
       <div id="map"></div>
       <div> 
         <Map />
-      </div>
-      <h3 className="decorative-font">Best pics</h3>
-      <div className="images-center">
-        {picTiles}
       </div>
       <div className="highlight-form">
       <ErrorList errors={errors} />

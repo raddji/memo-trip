@@ -14,6 +14,8 @@ const NewHighlightForm = ({ postHighlight }) => {
     });
   };
 
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     postHighlight(newHighlight);
@@ -63,7 +65,7 @@ const NewHighlightForm = ({ postHighlight }) => {
           />
         </label>
 
-        <input type="submit" value="Enter" className="button" />
+        <input type="submit" value="Enter" className="button add-radius pic-buttons" />
       </form>
     </div>
   )

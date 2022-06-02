@@ -78,14 +78,14 @@ const NewPicForm = (props,) => {
 
         <img src={uploadedImage.preview} />
 
-        <div className="button-group">
+        <div>
           <input 
-          className="button"
+          className="button pic-buttons"
           type="submit"
           value="Add"
           />
           <input
-            className="button"
+            className="button pic-buttons"
             type="submit"
             value="Clear"
             onClick={clearForm}

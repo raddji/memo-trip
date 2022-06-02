@@ -3,43 +3,62 @@ import axios from "axios";
 
 
 const Map = (props) => {
-  const [userData, setUserData] = useState({});
+  const [articles, setArticles] = useState(null);
   
-  const nytimesUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=birthday&api-key=b9QlcMrqvGwdp6fnIbhpkFi5fRtwdmrO";
+  const userInput = "hawaii";
+  const nytimesUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${userInput}&api-key=b9QlcMrqvGwdp6fnIbhpkFi5fRtwdmrO`;
   
   const getArticleWithFetch = async () => {
     const response = await axios.get(nytimesUrl);
-    setUserData(response.data);
+    setArticles(response.data);
   };
-  console.log(userData)
+  console.log(articles)
 
-  
-  const dataObjTiles = userData.response.docs.map((doc) => {
+  const handleInputChange = event => {
+    setArticles({
+      ...articles,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  let dataObjTiles = "";
+  if (articles) {
+  dataObjTiles = articles.response.docs.map((doc) => {
     return (
       <div>
-        <h2>NYT</h2>
-        <ul>
-          <li key={doc.id}>{doc.snippet}</li>
-          <li key={doc.id}>{doc.abstract}</li>
+        <ul key={doc.snippet}>
+          <h3><li>{doc.headline.main}</li></h3>
+          <li>{doc.snippet}</li>
         </ul>
       </div>
     )
   })
+}
   useEffect(() => {
     getArticleWithFetch();
   }, []);
   // debugger
 
   return (
-    <div>
+    <div key="articles">
       <header>
         <h2>NYTimes Articles</h2>
       </header>
+      <form>
+        <label htmlFor="article">
+            <input 
+            type="text" 
+            name="article" 
+            placeholder="Find article related to memory" 
+            onChange={handleInputChange}
+            />
+        </label>
+      </form>
       <div>
         <ul>
-          <li>{userData.status}</li>
-          <li>{userData.copyright}</li>
-          <li>{dataObjTiles}</li>
+          {/* <li>{userData.status}</li> */}
+          {/* <li>{userData.copyright}</li> */}
+          <li className="nyt-article">{dataObjTiles}</li>
           {/* <li>{userData.response.docs[0].snippet}</li> */}
           {/* <li>{dataObjTiles}</li> */}
         </ul>

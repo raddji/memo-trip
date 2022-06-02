@@ -9,7 +9,7 @@ import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
-
+import Map from "./Map";
 import MemoTripIndex from "./MemoTripIndex";
 import MemoTripShowPage from "./MemoTripShowPage.js";
 import NewMemoTripForm from "./NewMemoTripForm";
@@ -18,20 +18,18 @@ const App = ({ props, user }) => {
   const [currentUser, setCurrentUser] = useState(undefined);
 
   const unauthenticatedListItems = [
-    <div>
+    <div key="memos">
       <Link to="/memotrips">
-        <li key="sign-in" className="card landing-card title">
+        <li key="memories" className="card landing-card title">
         Memories
         </li>
       </Link>
+      <Link to="/memotrips/new">
+        <li key="add-memo" className="card landing-card title">
+        Add a memory
+        </li>
+      </Link>
     </div>,
-    // <div>
-    //   <Link to="/users/new"> 
-    //     <li key="sign-up" className="card landing-card">
-    //       Sign Up
-    //     </li>
-    //     </Link>
-    // </div>,
   ];
 
   const authenticatedListItems = [
@@ -58,21 +56,15 @@ const App = ({ props, user }) => {
       <TopBar user={currentUser} />
       <Switch>
         <Route exact path="/">
-          <h2 className="decorative-font show-page-card">Memo Trip: a digital memory scrapbook</h2>
+          <h3 className="decorative-font show-page-card">Memo Trip: a digital memory scrapbook</h3>
           <div>
-            {/* <ul className="landing-menu">
-            <li>
-              <Link to="/trips/new">
-                Add a new trip
-              </Link>
-            </li> */}
             {user ? authenticatedListItems : unauthenticatedListItems}
-          {/* </ul> */}
         </div>
         </Route>
         <Route exact path="/memotrips/new" component={NewMemoTripForm} />
         <Route exact path="/memotrips" component={MemoTripIndex} />
         <Route exact path="/memotrips/:id" component={MemoTripShowPage} />
+        <Route exact path="/memotrips/map" component={Map} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>

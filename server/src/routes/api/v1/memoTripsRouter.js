@@ -22,6 +22,7 @@ memoTripsRouter.get("/:id", async (req, res) => {
     memoTrip.highlights = await memoTrip.$relatedQuery("highlights");
     memoTrip.pics = await memoTrip.$relatedQuery("pics");
     return res.status(200).json({ memoTrip: memoTrip })
+    
   } catch (err) {
     console.log(err)
     return res.status(500).json({ errors: errors })
@@ -31,9 +32,10 @@ memoTripsRouter.get("/:id", async (req, res) => {
 memoTripsRouter.post("/", async (req, res) => {
   try {
     const memoTripBody = cleanUserInput(req.body)
-    const newMemoTrip = await MemoTrip.query().insertAndFetch(memoTripBody)
-    return res.status(201).json({ newMemoTrip })
-    } catch (error) {
+    const newMemoTripData = await MemoTrip.query().insertAndFetch(memoTripBody)
+    return res.status(201).json({ newMemoTripData })
+  } catch (error) {
+      console.log(error)
       if (error instanceof ValidationError) {
         return res.status(422).json({ errors: error.data })
       }
@@ -41,7 +43,7 @@ memoTripsRouter.post("/", async (req, res) => {
   }
 })
 
-memoTripsRouter.use("/:tripId/highlights", memoHighlightsRouter)
-memoTripsRouter.use("/:tripId/pics", memoPicsRouter)
+memoTripsRouter.use("/:memotripId/highlights", memoHighlightsRouter)
+memoTripsRouter.use("/:memotripId/pics", memoPicsRouter)
 
 export default memoTripsRouter;

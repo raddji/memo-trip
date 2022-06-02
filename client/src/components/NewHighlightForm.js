@@ -14,6 +14,8 @@ const NewHighlightForm = ({ postHighlight }) => {
     });
   };
 
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     postHighlight(newHighlight);
@@ -29,38 +31,41 @@ const NewHighlightForm = ({ postHighlight }) => {
   };
 
   return (
-    <div>
-      <h3>Things to do on this trip: </h3>
+    <div className="show-page-card">
+      <h3 className="decorative-font">Memory Highlights: </h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="dining">
           <input 
           type="text" 
           name="dining" 
-          placeholder="A place to get delicious food"
+          placeholder="Yummy facts about this memory"
           onChange={handleInputChange}
           value={newHighlight.dining}
+          className="add-radius"
           />
         </label>
         <label htmlFor="activity">
           <input 
           type="text" 
           name="activity" 
-          placeholder="Recommended fun activity or attraction"
+          placeholder="Activities I want to remember"
           onChange={handleInputChange}
           value={newHighlight.activity}
+          className="add-radius"
           />
         </label>
         <label htmlFor="note">
           <input 
           type="text" 
           name="note" 
-          placeholder="Anything I don't want to forget" 
+          placeholder="Anything else to share" 
           onChange={handleInputChange}
           value={newHighlight.note}
+          className="add-radius"
           />
         </label>
 
-        <input type="submit" value="Add Ideas" className="button" />
+        <input type="submit" value="Enter" className="button add-radius pic-buttons" />
       </form>
     </div>
   )

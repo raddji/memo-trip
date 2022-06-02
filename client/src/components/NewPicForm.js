@@ -49,46 +49,50 @@ const NewPicForm = (props,) => {
   }
 
   return (
-    <form className="callout primary" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">
-        <input
-        id="title"
-        name="title"
-        value={pic.title}
-        onChange={handleChange}
-        placeholder="Title"
-        />
-        </label>
-      </div>
+    <div className="pic-form-card card">
+        <form className="" onSubmit={handleSubmit}>
+          <h3 className="decorative-font">Add Photos:</h3>
+          <div>
+            <label htmlFor="title">
+            <input
+            id="title"
+            name="title"
+            value={pic.title}
+            onChange={handleChange}
+            placeholder="Title"
+            className="add-radius"
+            />
+            </label>
+          </div>
+        
+        <Dropzone onDrop={handleImageUpload}>
+          {({getRootProps, getInputProps}) => (
+            <section>
+              <div {...getRootProps()}>
+                <input {...getInputProps()} />
+                <p>Upload Some Favorite Moments - drag 'n' drop or click to upload</p>
+              </div>
+            </section>
+          )}
+        </Dropzone>
 
-      <Dropzone onDrop={handleImageUpload}>
-        {({getRootProps, getInputProps}) => (
-          <section>
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              <p>Upload Some Favorite Moments - drag 'n' drop or click to upload</p>
-            </div>
-          </section>
-        )}
-      </Dropzone>
+        <img src={uploadedImage.preview} />
 
-      <img src={uploadedImage.preview} />
-
-      <div className="button-group">
-        <input 
-        className="button"
-        type="submit"
-        value="Add"
-        />
-        <input
-          className="button"
+        <div>
+          <input 
+          className="button pic-buttons"
           type="submit"
-          value="Clear"
-          onClick={clearForm}
+          value="Add"
           />
-      </div>
-    </form>
+          <input
+            className="button pic-buttons"
+            type="submit"
+            value="Clear"
+            onClick={clearForm}
+            />
+        </div>
+      </form>
+    </div>
   )
 }
 

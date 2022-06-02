@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react"
 import ErrorList from "./layout/ErrorList";
 import NewHighlightForm from "./NewHighlightForm.js";
+import HighlightTile from "./HighlightTile.js"
 import NewPicForm from "./NewPicForm";
+import PicTile from "./PicTile";
+import Map from "./Map";
+import translateServerErrors from "../../../client/src/services/translateServerErrors.js"
 
 const MemoTripShowPage = (props) => {
+
   const [memoTrip, setMemoTrip] = useState({ highlights: [], pics: [] });
   const [errors, setErrors] = useState({});
   const { id } = props.match.params;
@@ -46,7 +51,6 @@ const MemoTripShowPage = (props) => {
       } else {
         const highlight = await response.json();
         const updatedHighlights = memoTrip.highlights.concat(highlight);
-        console.log(memoTrip)
         setErrors([]);
         setMemoTrip({...memoTrip, highlights: updatedHighlights });
       }
@@ -55,27 +59,13 @@ const MemoTripShowPage = (props) => {
       console.error(`error in fetch: ${err.message}`);
     }
   };
-  console.log(memoTrip)
 
   const highlightTiles = memoTrip.highlights.map((highlight) => {
-    return (
-      <div>
-        <ul>
-          <li>{highlight.dining}</li>
-          <li>{highlight.activity}</li>
-          <li>{highlight.note}</li>
-        </ul>
-      </div>
-    )
+    return <HighlightTile key={highlight.id} highlight={highlight} />
   })
 
   const picTiles = memoTrip.pics.map((pic) => {
-    return (
-      <div>
-        <h3>{pic.title}</h3>
-        <img src={pic.image} />
-      </div>
-    )
+    return <PicTile key={pic.id} pic={pic} />
   })
 
   const postPic = async (newPic) => {
@@ -90,35 +80,52 @@ const MemoTripShowPage = (props) => {
       if (!response.ok) {
         if (response.status === 422) {
           const body = await response.json()
-          setErrors(body.errors)
+          console.log(body.errors)
+          const newErrors = translateServerErrors(body.errors);
+          return setErrors(newErrors)
         } else {
-          throw new Error(`${response.status} (${response.statusText})`);
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage);
+          throw error;
         }
       }
       const body = await response.json()
-      // setPics([
-      //   ...pics,
-      //   body.pic
-      // ])
+      setMemoTrip({...memoTrip, pics:[...memoTrip.pics, body.pic] })
+
     } catch (error) {
       console.error(`Error in addPic fetch: ${error.message}`);
     }
   }
 
   return (
-    <div className="show-page-card">
-      <h1 className="decorative-font">{memoTrip.name}</h1>
-      <p>{memoTrip.location}</p>
-      <p>{memoTrip.date}</p>
-      {highlightTiles}
-      {picTiles}
+    <div className="">
+      <div className="card show-memory-card">
+        <h1 className="decorative-font">{memoTrip.name}</h1>
+        <p>{memoTrip.where}</p>
+        <p>{memoTrip.what}</p>
+      </div>
+      <h3 className="decorative-font">Best pics</h3>
+      <div className="images-center">
+        {picTiles}
+      </div>
+      <div>
+        {highlightTiles}
+      </div>
+      <div id="map"></div>
+      <div> 
+        <Map />
+      </div>
+      <div className="highlight-form">
       <ErrorList errors={errors} />
       <NewHighlightForm 
       postHighlight={postHighlight}
       />
+      </div>
+      <div>
       <NewPicForm 
       postPic={postPic}
       />
+      </div>
     </div>   
   )
 }

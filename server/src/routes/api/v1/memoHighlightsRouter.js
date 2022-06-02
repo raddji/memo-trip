@@ -7,7 +7,6 @@ const memoHighlightsRouter = new express.Router({ mergeParams: true });
 
 memoHighlightsRouter.post("/", async (req, res) => {
   const { memotripId } = req.params;
-  // console.log(memotripId)
   try {
     const highlightsBody = req.body;
     const cleanedHighlightsBody = cleanUserInput(highlightsBody);

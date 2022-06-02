@@ -17,7 +17,7 @@ const TripPicsList = (props) => {
       ])
     } catch (error) {
       console.log(error)
-      console.error(`Error in getPics getch: ${error.message}`);
+      console.error(`Error in getPics fetch: ${error.message}`);
     } 
   };  
   useEffect(() => {

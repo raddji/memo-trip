@@ -81,7 +81,6 @@ const MemoTripShowPage = (props) => {
         if (response.status === 422) {
           const body = await response.json()
           console.log(body.errors)
-          // translate server errors
           const newErrors = translateServerErrors(body.errors);
           return setErrors(newErrors)
         } else {
@@ -103,7 +102,6 @@ const MemoTripShowPage = (props) => {
       <div className="card show-memory-card">
         <h1 className="decorative-font">{memoTrip.name}</h1>
         <p>{memoTrip.where}</p>
-        {/* <p>{memoTrip.when}</p> */}
         <p>{memoTrip.what}</p>
       </div>
       <h3 className="decorative-font">Best pics</h3>

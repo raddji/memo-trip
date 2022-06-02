@@ -37,7 +37,6 @@ const Map = (props) => {
   useEffect(() => {
     getArticleWithFetch();
   }, []);
-  // debugger
 
   return (
     <div key="articles">
@@ -56,17 +55,8 @@ const Map = (props) => {
       </form>
       <div>
         <ul>
-          {/* <li>{userData.status}</li> */}
-          {/* <li>{userData.copyright}</li> */}
           <li className="nyt-article">{dataObjTiles}</li>
-          {/* <li>{userData.response.docs[0].snippet}</li> */}
-          {/* <li>{dataObjTiles}</li> */}
         </ul>
-        {/* <h5>{userData.response.docs[0].abstract}</h5>
-        <h5>{userData.response.docs[1].abstract}</h5>
-        <h5>{userData.response.docs[2].abstract}</h5> */}
-
-        {/* <h3>{dataObjTiles}</h3> */}
       </div>
     </div>
   )

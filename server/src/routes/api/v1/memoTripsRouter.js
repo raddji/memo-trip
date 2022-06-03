@@ -1,4 +1,5 @@
 import express from "express"
+import MemoSerializer from "../../../../serializers/MemoSerializer.js";
 import { MemoTrip } from "../../../models/index.js"
 import { ValidationError } from "objection";
 import cleanUserInput from "../../../services/cleanUserInput.js";
@@ -7,14 +8,18 @@ import memoPicsRouter from "./memoPicsRouter.js"
 
 const memoTripsRouter = new express.Router();
 
-memoTripsRouter.get("/", async (req, res) => {
+memoTripsRouter.get("/", async(req, res) => {
   try {
-    const memoTrips = await MemoTrip.query();
-    return res.status(200).json({ memoTrips: memoTrips });
+    const memoTrips = await MemoTrip.query()
+    const serializedMemoTrips = await Promise.all(memoTrips.map(async (memoTrip) => {
+      return await MemoSerializer.getSummary(memoTrip)
+    })
+  )
+  res.status(200).json({ memoTrips: serializedMemoTrips })
   } catch (err) {
-    return res.status(500).json({ errors: err });
+    res.status(500).json({ errors: err })
   }
-});
+})
 
 memoTripsRouter.get("/:id", async (req, res) => {
   try {

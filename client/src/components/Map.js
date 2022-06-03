@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-
+// import "dotenv/config" 
 
 const Map = (props) => {
   const [articles, setArticles] = useState(null);
@@ -12,7 +12,6 @@ const Map = (props) => {
     const response = await axios.get(nytimesUrl);
     setArticles(response.data);
   };
-  console.log(articles)
 
   const handleInputChange = event => {
     setArticles({
@@ -25,8 +24,8 @@ const Map = (props) => {
   if (articles) {
   dataObjTiles = articles.response.docs.map((doc) => {
     return (
-      <div>
-        <ul key={doc.snippet}>
+      <div key={doc.snippet}>
+        <ul>
           <h3><li>{doc.headline.main}</li></h3>
           <li>{doc.snippet}</li>
         </ul>

@@ -69,7 +69,7 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
   return (
     <div>
       <div className="show-page-card">
-        <h1 className="decorative-font">Add a new memory:</h1>
+        <h1 className="decorative-font top-bar-text">Add a new memory:</h1>
         <ErrorList errors={errors} />
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">
@@ -113,7 +113,7 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
             />
           </label>
           
-          <input type="submit" className="button" value="Enter"/>
+          <input type="submit" className="button pic-buttons" value="Enter"/>
         </form>
       </div>
     </div>

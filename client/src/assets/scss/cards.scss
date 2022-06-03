@@ -1,0 +1,77 @@
+.landing-card {
+  width: 400px;
+  height: 250px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+  opacity: 0.5;
+  text-align: center;
+  filter: drop-shadow(0 0 0.75rem #F7B801);
+}
+
+.landing-card:hover {
+  opacity: 0.65;
+}
+
+.show-page-card {
+  width: 500px;
+  height: auto;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.index-card {
+  width: 100px;
+  height: 150px;
+  margin-top: 1em 0 0 0;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1em;
+  opacity: 0.65;
+  filter: drop-shadow(0 0 0.175rem #F7B801);
+}
+
+.index-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.highlight-card {
+  width: auto;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+  opacity: 0.6;
+  text-align: center;
+  padding: 1em;
+}
+
+.pic-form-card {
+  width: auto;
+  height: auto;
+  padding: 1em;
+  margin-top: 20px;
+  background-color: #F18701;
+  text-align: center;
+  border: 7px solid #F7B801;
+}
+
+.show-memory-card {
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #F7B801;
+  opacity: 0.65;
+}
+
+.pic-landing-card {
+  width: 300px;
+  height: 250px;
+  margin: auto;
+  border-radius: 5px;
+}

@@ -1,0 +1,115 @@
+body {
+  font-family: 'Varela Round', sans-serif;
+  background-repeat: no-repeat;
+}
+
+.memos {
+  background-image: url("../../../public/images/bg-image.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+ul.landing-menu {
+  list-style-type: none;
+}
+
+figcaption {
+  color: #fff;
+}
+
+.decorative-font {
+  font-family: 'Pacifico', cursive;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.memory-name-color {
+  color: #F35B04;
+  font-weight: 800;
+}
+
+.memory-name-color:hover {
+  color: #164766;
+  opacity: 1;
+}
+
+.add-radius {
+  border-radius: 20px;
+}
+
+.title {
+  font-family: "Pacifico", cursive;
+  font-size: 3em;
+  color: #F7B801;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar {
+  height: 80px;
+}
+
+.ul-menu-color {
+  color: #3D6590;
+}
+
+h2.decorative-font.show-page-card {
+    padding-top: 50px;
+}
+
+.highlight-form {
+  margin-top: 150px;
+}
+
+.images-center {
+  display: flex;
+  align-content: center;
+}
+.images {
+  display: inline-block;
+}
+
+.image-style {
+  padding: 1em;
+}
+.image-size {
+  width: 200px;
+  height: auto;
+}
+
+.flex-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+h3.decorative-font {
+  text-align: center;
+  color: #FFF;
+}
+
+.nyt-article {
+  color: #FFF;
+}
+
+.highlight-enter {
+  background-color: #fff;
+  color: #3D6590;
+}
+
+.top-bar-text {
+  color: #FFF;
+}

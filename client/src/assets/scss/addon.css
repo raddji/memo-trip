@@ -1,15 +1,10 @@
-@import "./foundation/settings";
-@import "~foundation-sites/scss/foundation";
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Varela+Round&family=Yanone+Kaffeesatz:wght@500&display=swap');
-@include foundation-everything;
-
 body {
   font-family: 'Varela Round', sans-serif;
   background-repeat: no-repeat;
 }
 
 .memos {
-  background-image: url("/images/s-tsuchiya-Fo9-xcI1J_8-unsplash.jpg");
+  background-image: url("../../../public/images/s-tsuchiya-Fo9-xcI1J_8-unsplash.jpg");
   background-position: center;
   background-size: cover;
 }

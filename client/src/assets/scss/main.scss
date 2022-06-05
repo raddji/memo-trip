@@ -1,8 +1,8 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
-@import "./addon.scss";
 @import "./cards.scss";
 @import "./buttons.scss";
+@import "./addon.scss";
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Varela+Round&family=Yanone+Kaffeesatz:wght@500&display=swap');
 @include foundation-everything;
 

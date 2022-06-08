@@ -52,6 +52,8 @@ const App = ({ props, user }) => {
   }, [])
 
   return (
+    <div className="memos">
+
     <Router>
       <TopBar user={currentUser} />
       <Switch>
@@ -69,6 +71,7 @@ const App = ({ props, user }) => {
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
     </Router>
+    </div>
   );
 };
 

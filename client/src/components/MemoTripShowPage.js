@@ -126,7 +126,6 @@ const MemoTripShowPage = (props) => {
       <div id="map"></div>
       <div> 
         {articleMapTile}
-        console.log({articleMapTile})
       </div>
       <div className="highlight-form">
       <ErrorList errors={errors} />

@@ -15,7 +15,6 @@ const MemoTripTile = (props) => {
             <li>{where}</li>
             <li>{when.substring(0, 10)}</li>
             <li>{what}</li>
-            <li>{article}</li>
           </ul>  
         </div>
       </div>

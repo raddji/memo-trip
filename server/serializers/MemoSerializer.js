@@ -1,6 +1,6 @@
 class MemoSerializer {
   static async getSummary(memo) {
-    const allowedAttributes = ["id", "name", "where", "when", "what"]
+    const allowedAttributes = ["id", "name", "where", "when", "what", "article"]
     const serializedMemo = {}
     for (const attribute of allowedAttributes) {
       serializedMemo[attribute] = memo[attribute]

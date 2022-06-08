@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ErrorList from "./layout/ErrorList";
 import NewHighlightForm from "./NewHighlightForm.js";
 import HighlightTile from "./HighlightTile.js"
@@ -9,9 +10,17 @@ import translateServerErrors from "../../../client/src/services/translateServerE
 
 const MemoTripShowPage = (props) => {
 
-  const [memoTrip, setMemoTrip] = useState({ highlights: [], pics: [] });
+  const [memoTrip, setMemoTrip] = useState({ 
+    name: "",
+    what: "",
+    where: "",
+    when: "", 
+    article: "",
+    highlights: [], 
+    pics: [] 
+  });
   const [errors, setErrors] = useState({});
-  const { id } = props.match.params;
+  const { id } = useParams();
 
   const getMemoTrip = async () => {
     try {
@@ -21,6 +30,7 @@ const MemoTripShowPage = (props) => {
       }
       const body = await response.json();
       setMemoTrip(body.memoTrip)
+      
 
     } catch (err) {
       console.error(err);
@@ -97,6 +107,8 @@ const MemoTripShowPage = (props) => {
     }
   }
 
+  const articleMapTile = memoTrip.article ? <Map article={memoTrip.article} /> : null;
+
   return (
     <div className="">
       <div className="card show-memory-card">
@@ -113,7 +125,8 @@ const MemoTripShowPage = (props) => {
       </div>
       <div id="map"></div>
       <div> 
-        <Map />
+        {articleMapTile}
+        console.log({articleMapTile})
       </div>
       <div className="highlight-form">
       <ErrorList errors={errors} />

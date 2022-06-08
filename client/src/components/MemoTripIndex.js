@@ -3,6 +3,7 @@ import MemoTripTile from "./MemoTripTile.js"
 
 const MemoTripIndex = (props) => {
   const [memoTrips, setMemoTrips] = useState([]);
+  console.log(memoTrips)
   const getMemoTrips = async () => {
     try {
       const response = await fetch("/api/v1/memotrips");

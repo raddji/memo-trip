@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const MemoTripTile = (props) => {
 
-  const { name, where, when, what, pic, id } = props.memoTrip
+  const { name, where, when, what, pic, id, article } = props.memoTrip
   
   return (
     <div className="flex-tiles">
@@ -15,6 +15,7 @@ const MemoTripTile = (props) => {
             <li>{where}</li>
             <li>{when.substring(0, 10)}</li>
             <li>{what}</li>
+            <li>{article}</li>
           </ul>  
         </div>
       </div>

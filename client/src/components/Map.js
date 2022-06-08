@@ -1,62 +1,36 @@
-import React, { useState, useEffect } from 'react'
-import axios from "axios";
-// import "dotenv/config" 
+import React, { useState, useEffect } from "react";
 
 const Map = (props) => {
-  const [articles, setArticles] = useState(null);
-  
-  const userInput = "hawaii";
-  const nytimesUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${userInput}&api-key=b9QlcMrqvGwdp6fnIbhpkFi5fRtwdmrO`;
-  
-  const getArticleWithFetch = async () => {
-    const response = await axios.get(nytimesUrl);
-    setArticles(response.data);
+  const [nytArticle, setNYTArticle] = useState(null);
+
+  const getArticles = async () => {
+    try {
+      const article = props.article;
+      const response = await fetch(`/api/v1/articles?article=${article}`);
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`;
+        const error = new Error(errorMessage);
+        throw error;
+      }
+      const articleData = await response.json();
+      // console.log(articleData)
+      // debugger
+      if (articleData) {
+        setNYTArticle(articleData.response.docs[0].abstract);
+      }
+    } catch (err) {
+      console.error(`Error in fetch: ${err.message}`);
+    }
   };
 
-  const handleInputChange = event => {
-    setArticles({
-      ...articles,
-      [event.currentTarget.name]: event.currentTarget.value
-    })
-  }
-
-  let dataObjTiles = "";
-  if (articles) {
-  dataObjTiles = articles.response.docs.map((doc) => {
-    return (
-      <div key={doc.snippet}>
-        <ul>
-          <h3><li>{doc.headline.main}</li></h3>
-          <li>{doc.snippet}</li>
-        </ul>
-      </div>
-    )
-  })
-}
   useEffect(() => {
-    getArticleWithFetch();
+    getArticles();
   }, []);
 
   return (
-    <div key="articles">
-      <header>
-        <h2>NYTimes Articles</h2>
-      </header>
-      <form>
-        <label htmlFor="article">
-            <input 
-            type="text" 
-            name="article" 
-            placeholder="Find article related to memory" 
-            onChange={handleInputChange}
-            />
-        </label>
-      </form>
-      <div>
-        <ul>
-          <li className="nyt-article">{dataObjTiles}</li>
-        </ul>
-      </div>
+    <div>
+      <h1>New York Times articles:</h1>
+      <p>{nytArticle}</p>
     </div>
   )
 }

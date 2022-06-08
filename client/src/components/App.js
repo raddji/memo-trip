@@ -52,23 +52,25 @@ const App = ({ props, user }) => {
   }, [])
 
   return (
-    <Router>
-      <TopBar user={currentUser} />
-      <Switch>
-        <Route exact path="/">
-          <h3 className="decorative-font show-page-card">Memo Trip: a digital memory scrapbook</h3>
-          <div>
-            {user ? authenticatedListItems : unauthenticatedListItems}
-        </div>
-        </Route>
-        <Route exact path="/memotrips/new" component={NewMemoTripForm} />
-        <Route exact path="/memotrips" component={MemoTripIndex} />
-        <Route exact path="/memotrips/:id" component={MemoTripShowPage} />
-        <Route exact path="/memotrips/map" component={Map} />
-        <Route exact path="/users/new" component={RegistrationForm} />
-        <Route exact path="/user-sessions/new" component={SignInForm} />
-      </Switch>
-    </Router>
+    <div className="memos">
+      <Router>
+        <TopBar user={currentUser} />
+        <Switch>
+          <Route exact path="/">
+            <h3 className="decorative-font show-page-card">Memo Trip: a digital memory scrapbook</h3>
+            <div>
+              {user ? authenticatedListItems : unauthenticatedListItems}
+          </div>
+          </Route>
+          <Route exact path="/memotrips/new" component={NewMemoTripForm} />
+          <Route exact path="/memotrips" component={MemoTripIndex} />
+          <Route exact path="/memotrips/:id" component={MemoTripShowPage} />
+          <Route exact path="/memotrips/articles" component={Map} />
+          <Route exact path="/users/new" component={RegistrationForm} />
+          <Route exact path="/user-sessions/new" component={SignInForm} />
+        </Switch>
+      </Router>
+    </div>
   );
 };
 

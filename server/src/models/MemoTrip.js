@@ -13,7 +13,8 @@ class MemoTrip extends Model {
         name: { type: "string" },
         where: { type: "string" },
         when: { type: "string" },
-        what: { type: "string" }
+        what: { type: "string" },
+        article: { type: "string" }
       }
     };
   };

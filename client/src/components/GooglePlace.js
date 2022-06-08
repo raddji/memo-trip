@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import React from { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const GooglePlaceTile = (props) => {
   const [place, setPlace] = useState("");

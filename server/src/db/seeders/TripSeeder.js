@@ -7,19 +7,22 @@ class MemoTripSeeder {
         name: "Birthday Month",
         where: "Maui, Hawai'i",
         when: "November 1, 2022",
-        what: "Best times ever!"
+        what: "Best times ever!",
+        article: "Best in Maui"
       },
       {
         name: "Kalalau Trail Hike",
         where: "Kauai Na'pali Coast",
         when: "November 17, 2021",
-        what: "Most beautiful and challenging 22 mile hike along the Napali coast!"
+        what: "Most beautiful and challenging 22 mile hike along the Napali coast!",
+        article: "Kauai and Kalalau Trail"
       },
       {
         name: "Launch Academy Graduation Party",
         where: "Boston, MA",
         when: "May 31, 2022",
-        what: "Work well done, Cohort 36!"
+        what: "Work well done, Cohort 36!",
+        article: "Software engineering bootcamps"
       }
     ];
     for (const singleMemoTripData of memoTripData) {

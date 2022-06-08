@@ -1,13 +1,13 @@
 import express from "express";
-import nytClient from "../../../apiClient/nytClient";
+import nytClient from "../../../apiClient/nytClient.js";
 
 const nytRouter = new express.Router();
 
 nytRouter.get("/", async (req, res) => {
-  const userInput = req.query.userInput
+  const article = req.query.article
 
   try {
-    const nytResponse = await nytClient.getArticle(userInput);
+    const nytResponse = await nytClient.getArticle(article);
     const articleData = JSON.parse(nytResponse);
     return res
       .set({ "Content-Type": "application/json" })

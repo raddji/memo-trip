@@ -8,7 +8,8 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
     name: "",
     where: "",
     when: "",
-    what: ""
+    what: "",
+    article: ""
   });
 
   const [errors, setErrors] = useState([]);
@@ -62,7 +63,8 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
     name: "",
     where: "",
     when: "",
-    what: ""
+    what: "",
+    article: ""
     })
   }
   
@@ -110,6 +112,16 @@ const NewMemoTripForm = ({ memoTrips, setMemoTrips }) => {
             placeholder="What do you want to remember:"
             onChange={handleInputChange}
             value={newMemoTrip.what}
+            />
+          </label>
+          <label htmlFor="article">
+            <input 
+            type="text"
+            name="article"
+            className="add-radius"
+            placeholder="Find interesting articles from NYT:"
+            onChange={handleInputChange}
+            value={newMemoTrip.article}
             />
           </label>
           

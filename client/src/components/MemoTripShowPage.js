@@ -110,7 +110,7 @@ const MemoTripShowPage = (props) => {
   const articleMapTile = memoTrip.article ? <Map article={memoTrip.article} /> : null;
 
   return (
-    <div className="">
+    <div>
       <div className="card show-memory-card">
         <h1 className="decorative-font">{memoTrip.name}</h1>
         <p>{memoTrip.where}</p>

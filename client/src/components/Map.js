@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Map = (props) => {
   const [nytArticle, setNYTArticle] = useState(null);
@@ -13,10 +14,22 @@ const Map = (props) => {
         throw error;
       }
       const articleData = await response.json();
-      // console.log(articleData)
+      console.log(articleData)
       // debugger
+      let dataObjectTiles = "";
+
       if (articleData) {
-        setNYTArticle(articleData.response.docs[0].abstract);
+        dataObjectTiles = articleData.response.docs.map((doc) => {
+          return (
+            <div key={doc.snippet}> 
+              <ul>
+                <Link to={doc.web_url}><h3><li>{doc.headline.main}</li></h3></Link>
+                <li>{doc.snippet}</li>
+              </ul>
+            </div>
+          )
+        })
+        setNYTArticle(dataObjectTiles);
       }
     } catch (err) {
       console.error(`Error in fetch: ${err.message}`);
@@ -30,7 +43,7 @@ const Map = (props) => {
   return (
     <div>
       <h1>New York Times articles:</h1>
-      <p>{nytArticle}</p>
+      {nytArticle}
     </div>
   )
 }

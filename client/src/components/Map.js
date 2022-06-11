@@ -23,7 +23,7 @@ const Map = (props) => {
           return (
             <div key={doc.snippet}> 
               <ul>
-                <Link to={doc.web_url}><h3><li>{doc.headline.main}</li></h3></Link>
+                <a href={doc.web_url} target="_blank"><h3><li>{doc.headline.main}</li></h3></a>
                 <li>{doc.snippet}</li>
               </ul>
             </div>

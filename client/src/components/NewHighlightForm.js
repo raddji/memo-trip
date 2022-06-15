@@ -32,7 +32,7 @@ const NewHighlightForm = ({ postHighlight }) => {
 
   return (
     <div className="show-page-card">
-      <h3 className="decorative-font">Memory Highlights: </h3>
+      <h3 className="decorative-font add-highlight-color">Memory Highlights: </h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="dining">
           <input 

@@ -19,11 +19,11 @@ const Map = (props) => {
       let dataObjectTiles = "";
 
       if (articleData) {
-        dataObjectTiles = articleData.response.docs.map((doc) => {
+        dataObjectTiles = articleData.response.docs.map((doc, index) => {
           return (
-            <div key={doc.snippet}> 
+            <div key={index} className="article-hover article"> 
               <ul>
-                <a href={doc.web_url} target="_blank"><h3><li>{doc.headline.main}</li></h3></a>
+                <a href={doc.web_url} target="_blank"><h3><li className="article-color">{doc.headline.main}</li></h3></a>
                 <li>{doc.snippet}</li>
               </ul>
             </div>
@@ -41,8 +41,8 @@ const Map = (props) => {
   }, []);
 
   return (
-    <div>
-      <h1>New York Times articles:</h1>
+    <div className="article-card">
+      <h1 className="article-head decorative-font">New York Times articles:</h1>
       {nytArticle}
     </div>
   )

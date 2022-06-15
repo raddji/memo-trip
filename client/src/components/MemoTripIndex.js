@@ -30,7 +30,7 @@ const MemoTripIndex = (props) => {
   return (
     <div className="index-cards">
       <div>
-        <h3 className="decorative-font">Favorite Recent Memories: </h3>
+        <h3 className="decorative-font fave-memos-color">Favorite Recent Memories: </h3>
         {memoTripTiles}
       </div>
     </div>

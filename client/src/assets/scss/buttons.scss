@@ -1,37 +1,41 @@
-.sign-out-button {
+.button.sign-out-button {
   background-color: #3D6590;
   border-radius: 10px;
   filter: drop-shadow(0 0 0.175rem #3d6590);
 }
 
-.sign-up-button {
-  background-color: #3D6590;
-  color: #fff;
-  border-radius: 10px;
-  filter: drop-shadow(0 0 0.175rem #3d6590);
-}
-
-.sign-up-button:hover {
+.button.sign-up-button {
   background-color: #3D6590;
   color: #fff;
   border-radius: 10px;
   filter: drop-shadow(0 0 0.175rem #3d6590);
-  opacity: 0.6;
+  margin-left: 7px;
+}
+a.button.button.sign-up-button:visited {
+  background-color: #3D6590;
+  color: #fff;
+}
+.button.sign-up-button:hover {
+  background-color: #3D6590;
+  color: #fff;
+  border-radius: 10px;
+  // filter: drop-shadow(0 0 0.175rem #3d6590);
+  opacity: 0.9;
 }
 
-.sign-out-button:hover {
+.button.sign-out-button:hover {
   background-color: #B3994E;
   color: #fff;
 }
 
-.pic-buttons {
-  color: #3d6590;
-  background-color: #fff;
+.button.pic-buttons {
+  color: #fff;
+  background-color: #3d6590;
   margin-right: 10px;
   border-radius: 5px;
 }
 
 .pic-buttons:hover {
-  background-color: #3d6590;
+  background-color: #3d9099 !important;
   color: #fff;
 }

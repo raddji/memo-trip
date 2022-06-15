@@ -116,7 +116,7 @@ const MemoTripShowPage = (props) => {
         <p>{memoTrip.where}</p>
         <p>{memoTrip.what}</p>
       </div>
-      <h3 className="decorative-font">Best pics</h3>
+      <h3 className="decorative-font best-pics-color">Best pics</h3>
       <div className="images-center">
         {picTiles}
       </div>

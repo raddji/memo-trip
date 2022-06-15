@@ -7,6 +7,7 @@ body {
   background-image: url('https://i.imgur.com/3DvV4NC.jpeg');
   background-position: center;
   background-size: cover;
+  padding-bottom: 10em;
 }
 
 *,
@@ -36,6 +37,24 @@ ul li {
   list-style-type: none;
 }
 
+li.article-color {
+  color: #000;
+}
+
+.article-head {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.article {
+  text-align: center;
+}
+
+.article-hover:hover {
+  background-color: rgb(215, 130, 113);
+  opacity: 0.9;
+}
+
 .memory-name-color {
   color: #F35B04;
   font-weight: 800;
@@ -46,7 +65,7 @@ ul li {
   opacity: 1;
 }
 
-.add-radius {
+input.add-radius {
   border-radius: 20px;
 }
 
@@ -74,6 +93,10 @@ h2.decorative-font.show-page-card {
   margin-top: 150px;
 }
 
+.add-highlight-color {
+  color: #fff;
+}
+
 .images-center {
   display: flex;
   align-content: center;
@@ -98,7 +121,7 @@ h2.decorative-font.show-page-card {
 
 h3.decorative-font {
   text-align: center;
-  color: #FFF;
+  color: #000;
 }
 
 .nyt-article {
@@ -112,4 +135,42 @@ h3.decorative-font {
 
 .top-bar-text {
   color: #FFF;
+}
+
+div.top-bar {
+  background-color: none;
+}
+
+.top-bar, .top-bar ul {
+  background-color: transparent !important;
+  }
+
+a.menu-text-color {
+  color: #fff;
+  font-weight: bold;
+  padding: 1em;
+}
+a.menu-text-color:visited {
+  color: #fff;
+}
+
+a.menu-text-color:hover {
+  background-color: #fff;
+  opacity: 0.6;
+  color: #000;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+h3.decorative-font.best-pics-color {
+  color: #fff;
+}
+h3.decorative-font.fave-memos-color {
+  color: #fff;
+}
+h3.decorative-font.add-highlight-color {
+  color: #fff;
+}
+h3.decorative-font.memo-headline-color {
+  color: #fff;
 }

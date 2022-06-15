@@ -1,10 +1,10 @@
-.landing-card {
+.card.landing-card {
   width: 400px;
   height: 250px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 60px;
-  border-radius: 10px;
+  border-radius: 30px;
   opacity: 0.5;
   text-align: center;
   filter: drop-shadow(0 0 0.75rem #F7B801);
@@ -23,7 +23,7 @@
   text-align: center;
 }
 
-.index-card {
+.card.index-card {
   width: 100px;
   height: 150px;
   margin-top: 1em 0 0 0;
@@ -43,7 +43,6 @@
 .highlight-card {
   width: auto;
   height: auto;
-  margin-right: 20px;
   border-radius: 10px;
   opacity: 0.6;
   text-align: center;
@@ -74,4 +73,13 @@
   height: 250px;
   margin: auto;
   border-radius: 5px;
+}
+
+.article-card {
+  width: 80%;
+  margin: auto;
+  border-radius: 20px;
+  background-color: #fff;
+  opacity: 0.8;
+  padding: 1em;
 }

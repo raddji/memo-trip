@@ -42,6 +42,7 @@ const NewHighlightForm = ({ postHighlight }) => {
           onChange={handleInputChange}
           value={newHighlight.dining}
           className="add-radius"
+          id="1234"
           />
         </label>
         <label htmlFor="activity">

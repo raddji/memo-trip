@@ -14,8 +14,6 @@ const NewHighlightForm = ({ postHighlight }) => {
     });
   };
 
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
     postHighlight(newHighlight);

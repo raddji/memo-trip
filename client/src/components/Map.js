@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const Map = (props) => {
   const [nytArticle, setNYTArticle] = useState(null);
@@ -14,7 +13,7 @@ const Map = (props) => {
         throw error;
       }
       const articleData = await response.json();
-      console.log(articleData)
+      // console.log(articleData)
       // debugger
       let dataObjectTiles = "";
 

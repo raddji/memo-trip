@@ -16,8 +16,9 @@ const MemoTripShowPage = (props) => {
     where: "",
     when: "", 
     article: "",
+    comments: [],
     highlights: [], 
-    pics: [] 
+    pics: [], 
   });
   const [errors, setErrors] = useState({});
   const { id } = useParams();

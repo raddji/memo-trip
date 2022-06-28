@@ -5,6 +5,7 @@ import { ValidationError } from "objection";
 import cleanUserInput from "../../../services/cleanUserInput.js";
 import memoHighlightsRouter from "./memoHighlightsRouter.js";
 import memoPicsRouter from "./memoPicsRouter.js"
+import memoCommentsRouter from "./memoCommentsRouter.js";
 
 const memoTripsRouter = new express.Router();
 
@@ -50,5 +51,6 @@ memoTripsRouter.post("/", async (req, res) => {
 
 memoTripsRouter.use("/:memotripId/highlights", memoHighlightsRouter)
 memoTripsRouter.use("/:memotripId/pics", memoPicsRouter)
+memoTripsRouter.use("/:memotripId/comments", memoCommentsRouter)
 
 export default memoTripsRouter;

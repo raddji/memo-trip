@@ -6,8 +6,9 @@ import HighlightTile from "./HighlightTile.js"
 import NewPicForm from "./NewPicForm";
 import PicTile from "./PicTile";
 import Map from "./Map";
+import AddNewComment from "./AddNewComment";
 import translateServerErrors from "../../../client/src/services/translateServerErrors.js"
-
+import CommentTile from "./CommentTile";
 const MemoTripShowPage = (props) => {
 
   const [memoTrip, setMemoTrip] = useState({ 
@@ -16,11 +17,20 @@ const MemoTripShowPage = (props) => {
     where: "",
     when: "", 
     article: "",
+    comments: [],
     highlights: [], 
-    pics: [] 
+    pics: [], 
   });
   const [errors, setErrors] = useState({});
   const { id } = useParams();
+
+  const handleDelete = (commentId) => {
+    const updatedComments = memoTrip.comments.filter((comment) => comment.id !== commentId)
+    setMemoTrip({
+      ...memoTrip,
+      comments: updatedComments
+    })
+  }
 
   const getMemoTrip = async () => {
     try {
@@ -107,6 +117,42 @@ const MemoTripShowPage = (props) => {
     }
   }
 
+  const postComment = async (commentFormData) => {
+    try {
+      const response = await fetch(`/api/v1/memotrips/${id}/comments`, {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json"
+        }),
+        body: JSON.stringify(commentFormData),
+      });
+      if (!response.ok) {
+        if (response.status === 422) {
+          const body = await response.json();
+          const newErrors = translateServerErrors(body.errors);
+          return setErrors(newErrors);
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`;
+          const error = new Error(errorMessage);
+          throw error;
+        }
+      } else {
+        const { comment } = await response.json();
+        const updatedComments = memoTrip.comments.concat(comment);
+        setErrors([]);
+        setMemoTrip({ ...memoTrip, comments: updatedComments });
+      }
+    } catch (err) {
+      console.error(`Error in fetch: ${err.message}`);
+    }
+  };
+  // const commentTiles = memoTrip.comments.map((comment) => {
+  //   return <CommentTile key={comment.id} {...comment} handleDelete={handleDelete} />
+  // })
+
+
+  console.log(memoTrip)
+
   const articleMapTile = memoTrip.article ? <Map article={memoTrip.article} /> : null;
 
   return (
@@ -115,6 +161,8 @@ const MemoTripShowPage = (props) => {
         <h1 className="decorative-font">{memoTrip.name}</h1>
         <p>{memoTrip.where}</p>
         <p>{memoTrip.what}</p>
+        {/* {commentTiles} */}
+        <AddNewComment postComment={postComment} />
       </div>
       <h3 className="decorative-font best-pics-color">Best pics</h3>
       <div className="images-center">
@@ -123,7 +171,6 @@ const MemoTripShowPage = (props) => {
       <div>
         {highlightTiles}
       </div>
-      <div id="map"></div>
       <div> 
         {articleMapTile}
       </div>

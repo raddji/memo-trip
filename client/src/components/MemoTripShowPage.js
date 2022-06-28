@@ -124,7 +124,6 @@ const MemoTripShowPage = (props) => {
       <div>
         {highlightTiles}
       </div>
-      <div id="map"></div>
       <div> 
         {articleMapTile}
       </div>

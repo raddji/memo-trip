@@ -11,7 +11,8 @@ class Comment extends Model {
       required: ["commentText", "commentAuthor"],
       properties: {
         commentText: { type: "string" },
-        commentAuthor: { type: "string" }
+        commentAuthor: { type: "string" },
+        memotripId: { type: ["integer", "string"] }
       }
     }
   }
@@ -23,7 +24,7 @@ class Comment extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: MemoTrip,
         join: {
-          from: "comments.memoTripId",
+          from: "comments.memotripId",
           to: "memotrips.id"
         },
       },

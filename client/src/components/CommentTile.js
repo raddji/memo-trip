@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 const CommentTile = (props) => {
-  const { commentAuthor, commentText } = props.comment
-  
+  const { commentAuthor, commentText } = props
   return (
     <div>
       <h5>{commentAuthor}</h5>

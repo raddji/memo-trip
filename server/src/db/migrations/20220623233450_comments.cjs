@@ -8,7 +8,7 @@
 exports.up = async (knex) => {
   return knex.schema.createTable("comments", (table) => {
     table.bigIncrements("id").notNullable();
-    table.bigInteger("memoTripId").notNullable().index().unsigned().references("memotrips.id");
+    table.bigInteger("memotripId").notNullable().index().unsigned().references("memotrips.id");
     table.bigInteger("userId").notNullable().index().unsigned().references("users.id");
     table.string("commentAuthor").notNullable();
     table.text("commentText").notNullable();

@@ -20,7 +20,7 @@ const MemoTripShowPage = (props) => {
     comments: [],
     highlights: [], 
     pics: [], 
-  });
+  });  
   const [errors, setErrors] = useState({});
   const { id } = useParams();
 
@@ -146,12 +146,17 @@ const MemoTripShowPage = (props) => {
       console.error(`Error in fetch: ${err.message}`);
     }
   };
-  // const commentTiles = memoTrip.comments.map((comment) => {
-  //   return <CommentTile key={comment.id} {...comment} handleDelete={handleDelete} />
+  
+  // console.log(memoTrip.comments)
+  //   const commentTiles = memoTrip.comments.map((comment) => {
+  //   return <CommentTile 
+  //             key={comment.id} 
+  //             {...comment} 
+  //             handleDelete={handleDelete}
+  //             />
   // })
 
-
-  console.log(memoTrip)
+  // console.log(memoTrip)
 
   const articleMapTile = memoTrip.article ? <Map article={memoTrip.article} /> : null;
 
@@ -161,8 +166,8 @@ const MemoTripShowPage = (props) => {
         <h1 className="decorative-font">{memoTrip.name}</h1>
         <p>{memoTrip.where}</p>
         <p>{memoTrip.what}</p>
-        {/* {commentTiles} */}
         <AddNewComment postComment={postComment} />
+        {/* {commentTiles} */}
       </div>
       <h3 className="decorative-font best-pics-color">Best pics</h3>
       <div className="images-center">

@@ -14,13 +14,13 @@ class MemoTrip extends Model {
         where: { type: "string" },
         when: { type: "string" },
         what: { type: "string" },
-        article: { type: "string" }
+        article: { type: "string" },
       }
     };
   };
   
   static get relationMappings() {
-    const { Highlight, Pic } = require("./index.js");
+    const { Highlight, Pic, Comment } = require("./index.js");
 
     return {
       highlights: {
@@ -37,6 +37,14 @@ class MemoTrip extends Model {
         join: {
           from: "memotrips.id",
           to: "pics.memotripId"
+        }
+      },
+      comments: {
+        relation: Model.HasManyRelation,
+        modelClass: Comment,
+        join: {
+          from: "memotrips.id",
+          to: "comments.memotripId"
         }
       }
     }

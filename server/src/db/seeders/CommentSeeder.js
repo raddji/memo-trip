@@ -4,13 +4,13 @@ class CommentSeeder {
   static async seed() {
     const commentsData = [
       {
-        memoTripId: 1,
+        memotripId: 1,
         userId: 1, 
         commentAuthor: "Marche",
         commentText: "Wow, love this, Rade! Miss you much. <3"
       },
       {
-        memoTripId: 2, 
+        memotripId: 2, 
         userId: 1, 
         commentAuthor: "Su",
         commentText: "Next time I'm coming with you!! Post some more pics, please."

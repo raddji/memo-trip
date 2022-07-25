@@ -87,6 +87,13 @@ const MemoTripShowPage = (props) => {
   const picTiles = memoTrip.pics.map((pic) => {
     return <PicTile key={pic.id} pic={pic} />
   })
+//   const commentTiles = memoTrip.comments.map((comment) => {
+//   return <CommentTile 
+//             key={comment.id} 
+//             comment={comment}
+//             handleDelete={handleDelete}
+//             />
+// })
 
   const postPic = async (newPic) => {
     try {
@@ -147,16 +154,6 @@ const MemoTripShowPage = (props) => {
     }
   };
   
-  console.log(memoTrip.comments)
-    const commentTiles = memoTrip.comments.map((comment) => {
-    return <CommentTile 
-              key={comment.id} 
-              {...comment} 
-              handleDelete={handleDelete}
-              />
-  })
-
-  console.log(memoTrip)
 
   const articleMapTile = memoTrip.article ? <Map article={memoTrip.article} /> : null;
 
@@ -167,7 +164,7 @@ const MemoTripShowPage = (props) => {
         <p>{memoTrip.where}</p>
         <p>{memoTrip.what}</p>
         <AddNewComment postComment={postComment} />
-        {commentTiles}
+        {/* {commentTiles} */}
       </div>
       <h3 className="decorative-font best-pics-color">Best pics</h3>
       <div className="images-center">

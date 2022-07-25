@@ -9,6 +9,7 @@ memoCommentsRouter.post("/", async (req, res) => {
   const { memoTripId } = req.params;
   try {
     const commentBody = req.body;
+    console.log(commentBody);
     const cleanBodyData = cleanUserInput(commentBody);
     const comment = await Comment.query().insertAndFetch({
       ...cleanBodyData,

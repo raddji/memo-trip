@@ -11,7 +11,6 @@ const rootRouter = new express.Router();
 rootRouter.use("/api/v1/user-sessions", userSessionsRouter);
 rootRouter.use("/api/v1/users", usersRouter); 
 rootRouter.use("/api/v1/memotrips", memoTripsRouter);
-rootRouter.use("/api/v1/maps", googleMapsRouter);
 rootRouter.use("/api/v1/articles", nytRouter);
 
 rootRouter.use("/", clientRouter);

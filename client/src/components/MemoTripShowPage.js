@@ -147,16 +147,16 @@ const MemoTripShowPage = (props) => {
     }
   };
   
-  // console.log(memoTrip.comments)
-  //   const commentTiles = memoTrip.comments.map((comment) => {
-  //   return <CommentTile 
-  //             key={comment.id} 
-  //             {...comment} 
-  //             handleDelete={handleDelete}
-  //             />
-  // })
+  console.log(memoTrip.comments)
+    const commentTiles = memoTrip.comments.map((comment) => {
+    return <CommentTile 
+              key={comment.id} 
+              {...comment} 
+              handleDelete={handleDelete}
+              />
+  })
 
-  // console.log(memoTrip)
+  console.log(memoTrip)
 
   const articleMapTile = memoTrip.article ? <Map article={memoTrip.article} /> : null;
 
@@ -167,7 +167,7 @@ const MemoTripShowPage = (props) => {
         <p>{memoTrip.where}</p>
         <p>{memoTrip.what}</p>
         <AddNewComment postComment={postComment} />
-        {/* {commentTiles} */}
+        {commentTiles}
       </div>
       <h3 className="decorative-font best-pics-color">Best pics</h3>
       <div className="images-center">

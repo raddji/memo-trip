@@ -15,7 +15,7 @@ memoCommentsRouter.post("/", async (req, res) => {
       memoTripId: memoTripId,
       userId: req.user.id,
     });
-    return res.status(201).json({ comment });
+    return res.status(201).json({ comment:  comment });
   } catch (error) {
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data });

@@ -12,7 +12,6 @@ class Comment extends Model {
       properties: {
         commentText: { type: "string" },
         commentAuthor: { type: "string" },
-        memotripId: { type: ["integer", "string"] }
       }
     }
   }
